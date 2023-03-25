@@ -1,6 +1,7 @@
 import React from "react";
 import LogoutButton from "../components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import CheckUser from "../components/CheckUser";
 
 function Dashboard() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -23,6 +24,9 @@ function Dashboard() {
           <p>{user.updated_at}</p>
           <p>{user.email_verified}</p>
           <p>{user.sub}</p>
+        </div>
+        <div>
+          <CheckUser />
         </div>
         <div>
           <LogoutButton />
