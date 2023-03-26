@@ -1,16 +1,31 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const connectDB = require("./db/connect");
 require("dotenv").config();
-// const authrouter = require("./routes/auth");
+const authrouter = require("./routes/auth");
 
 const port = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:3000" }));
+
+// app.use(function (req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   //   res.setHeader(
+//   //     "Access-Control-Allow-Headers",
+//   //     "Origin, X-Requested-With, Content-Type, Accept"
+//   //   );
+//   //   res.setHeader(
+//   //     "Access-Control-Allow-Methods",
+//   //     "POST, GET, PATCH, DELETE, OPTIONS"
+//   //   );
+//   next();
+// });
 
 // routes
-// app.use("/api/v1/auth", authrouter);
+app.use("/api/v1/auth", authrouter);
 
 // starting the server and the database
 
@@ -27,31 +42,3 @@ const start = async () => {
 };
 
 start();
-
-// code from Auth0
-
-const { auth } = require("express-openid-connect");
-
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: "ajshdlaskjdhasjldkh",
-  baseURL: "http://localhost:5000",
-  clientID: "MNlGnGieoEBVazNJ08nXMSmWuIo3ieFI",
-  issuerBaseURL: "https://dev-ffvu53mxtpqd8laz.us.auth0.com",
-};
-
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
-
-// req.isAuthenticated is provided from the auth router
-app.get("/", (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
-});
-
-const { requiresAuth } = require("express-openid-connect");
-
-app.get("/profile", requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user.given_name));
-  // res.send(req.oidc.user);
-});

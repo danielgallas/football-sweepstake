@@ -1,7 +1,5 @@
 import player from "../pages/images/player.svg";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import LoginButton from "../components/LoginButton";
-import LogoutButton from "../components/LogoutButton";
 import "./styles.css";
 
 const Login = () => {
@@ -44,8 +42,9 @@ const Login = () => {
                 }}
               />
             </div>
-            <LoginButton />
-            <LogoutButton />
+            <button className="submit" onClick={() => {}}>
+              Sign in
+            </button>
           </form>
         </div>
       </section>

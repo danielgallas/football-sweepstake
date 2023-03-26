@@ -6,7 +6,7 @@ const CheckUser = () => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/profile");
+      const response = await axios.get("http://localhost:5000/hiya");
       console.log(response);
     } catch (error) {
       console.log(error);
