@@ -1,8 +1,26 @@
 import player from "../pages/images/player.svg";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import "./styles.css";
+import { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/register",
+        { username, password }
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <article>
       <section className="side">
@@ -17,9 +35,14 @@ const Login = () => {
             Please, provide login credential to proceed and have access to all
             our services
           </p>
-          <form className="login-form">
+          <form onSubmit={handleSubmit} className="login-form">
             <div className="form-control">
-              <input type="text" placeholder="Username" />
+              <input
+                value={username}
+                type="text"
+                placeholder="Username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
               <FaUserAlt
                 style={{
                   position: "absolute",
@@ -31,7 +54,12 @@ const Login = () => {
               />
             </div>
             <div className="form-control">
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <FaLock
                 style={{
                   position: "absolute",
@@ -42,9 +70,7 @@ const Login = () => {
                 }}
               />
             </div>
-            <button className="submit" onClick={() => {}}>
-              Sign in
-            </button>
+            <button className="submit">Login</button>
           </form>
         </div>
       </section>

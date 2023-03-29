@@ -11,6 +11,7 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 
+// Solution to CORS problem
 // app.use(function (req, res, next) {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
 //   //   res.setHeader(
