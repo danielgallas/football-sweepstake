@@ -13,10 +13,14 @@ const register = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.find({ username: username });
-    res.status(200).send(`user ${user} found`);
+    const user = await User.findOne({ username: username });
+    if (!user) {
+      return res.status(401).send("no user in our database");
+    } else {
+      res.status(200).send(user);
+    }
   } catch (error) {
-    res.status(400).send(error);
+    res.send(error);
   }
 };
 

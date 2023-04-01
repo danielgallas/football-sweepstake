@@ -62,6 +62,20 @@ section.side {
     margin-bottom: 30px;
 }
 
+.error-message {
+    text-align: center;
+    background-color: #f3eded;
+    color: #ce6666;
+    font-size: 1.1em;
+    line-height: 28px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.null{
+    display: none
+}
+
 .login-form {
     width: 100%;
     display: flex;
