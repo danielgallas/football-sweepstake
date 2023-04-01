@@ -3,13 +3,17 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import "./styles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [login, setLogin] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     setPassword("");
@@ -19,19 +23,40 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setLogin(!login);
-    // setError(true);
 
-    // AXIOS FETCH DATA
-    //     try {
-    //       const response = await axios.post(
-    //         "http://localhost:5000/api/v1/auth/login",
-    //         { username, password }
-    //       );
-    //       console.log(response.data);
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
+    if (login) {
+      // LOGIN FUNCTION
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/v1/auth/login",
+          { username, password }
+        );
+        console.log(response);
+        navigate("/dashboard");
+      } catch (error) {
+        setErrorMsg("User does not exist or wrong password");
+        setError(true);
+        console.log(error);
+      }
+    } else {
+      // REGISTER FUNCTION
+      // Check confirm password
+      if (password === confirmPassword) {
+        try {
+          setError(false);
+          const response = await axios.post(
+            "http://localhost:5000/api/v1/auth/register",
+            { username, password }
+          );
+          console.log(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        setErrorMsg("Passwords do not match");
+        setError(true);
+      }
+    }
   };
 
   return (
@@ -48,9 +73,7 @@ const Login = () => {
             Please, provide login credential to proceed and have access to all
             our services
           </p>
-          <p className={error ? "error-message" : "null"}>
-            Errors will be displayed here.
-          </p>
+          <p className={error ? "error-message" : "null"}>{errorMsg}</p>
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-control">
               <input
