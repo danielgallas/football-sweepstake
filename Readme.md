@@ -5,6 +5,7 @@
 - Work out how to handle multiple variables (scores, teams, etc.):
   - One set of data will be static (Teams names, round number)
   - Another set of data will be handled by the server (guessed scores for each game)
+  - How to pass components (scores, team names, round number) between pages?
   - Test this with only 2 rounds
 - Create one guessing instance that can be added to a user
 - After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
