@@ -1,22 +1,22 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import matches from "../matches.js";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  increase1,
+  increase2,
+  decrease1,
+  decrease2,
+} from "../features/scores/scoresSlice.js";
 
 function Match() {
-  const [score1, setScore1] = useState(0);
-  const [score2, setScore2] = useState(0);
-
-  useEffect(() => {
-    if (score1 < 0) setScore1(0);
-  }, [score1]);
-
-  useEffect(() => {
-    if (score2 < 0) setScore2(0);
-  }, [score2]);
+  // const { score1, score2 } = useSelector((store) => store.score);
+  const { scores } = useSelector((store) => store.score);
+  const dispatch = useDispatch();
 
   const displayMatches = matches.map((item) => {
-    const { team1, team2, round, date, place } = item;
+    const { team1, team2, _id, date, place, round } = item;
+
     return (
       <div className="welcome-message" key={round}>
         <p className="teams">{team1}</p>
@@ -26,15 +26,15 @@ function Match() {
         <span className="score">
           <button
             onClick={() => {
-              setScore1(score1 - 1);
+              dispatch(decrease1({ _id }));
             }}
           >
             <FaMinusCircle />
           </button>
-          {score1}
+          {scores[_id].score1}
           <button
             onClick={() => {
-              setScore1(score1 + 1);
+              dispatch(increase1({ _id }));
             }}
           >
             <FaPlusCircle />
@@ -42,15 +42,15 @@ function Match() {
           <p>x</p>
           <button
             onClick={() => {
-              setScore2(score2 - 1);
+              dispatch(decrease2({ _id }));
             }}
           >
             <FaMinusCircle />
           </button>
-          {score2}
+          {scores[_id].score2}
           <button
             onClick={() => {
-              setScore2(score2 + 1);
+              dispatch(increase2({ _id }));
             }}
           >
             <FaPlusCircle />
@@ -63,6 +63,7 @@ function Match() {
         <p>
           {date}, {place}
         </p>
+
         <div className="separator"></div>
       </div>
     );

@@ -2,17 +2,13 @@
 
 #### TO DO NOW:
 
-- Work out how to handle multiple variables (scores, teams, etc.):
-  - One set of data will be static (Teams names, round number)
-  - Another set of data will be handled by the server (guessed scores for each game)
-  - How to pass components (scores, team names, round number) between pages?
-  - Test this with only 2 rounds
-- Create one guessing instance that can be added to a user
+- Find a way for these scores to be “attached” to the correct users that are logged in.
 - After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
-
-Later:
-
-- Enhance design of guessing pages
+- Find a way to “autosave” these results
+- Improve the navigation and the layout (for when I implement 38 matches)
+- Find a way for users to submit these results permanently to the database (final submit)
+- Make some minor corrections (write rules in first page, change name of the app to Football Sweepstake)
+- Publish the whole thing
 
 #### THE MISSION:
 
@@ -44,3 +40,10 @@ There will be certain stages of implementation:
 - Making a fully responsive login/register page that accepts Google authentication. -> Changed my mind. Look at coding program log
   - Create the layout for the page: https://www.youtube.com/watch?v=TQl7BarutoE
 - Learn how to implement Auth0 or Firebase -> Changed my mind. Look at coding program log
+- MAIN ISSUE NOW: How to handle scores? Can I do it without useState (which changes all results)? How to add results to a separate collection?
+- Work out how to handle multiple variables (scores, teams, etc.):
+- One set of data will be static (Teams names, round number)
+- Another set of data will be handled by the server (guessed scores for each game)
+- How to pass components (scores, team names, round number) between pages?
+- Test this with only 2 rounds
+- Create increase/decrease buttons
