@@ -76,6 +76,7 @@ function Match() {
         What will be the final score? Give us your thought
       </p>
       {displayMatches}
+      <button onClick={() => console.log(scores)}>SUBMIT</button>
     </div>
   );
 }
