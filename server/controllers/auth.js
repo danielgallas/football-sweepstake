@@ -15,7 +15,9 @@ const login = async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username: username });
     if (!user) {
-      return res.status(401).send("no user in our database");
+      return res.status(401).send({ message: "No such user in our database" });
+    } else if (user.password != password) {
+      return res.status(401).send({ message: "Wrong password" });
     } else {
       res.status(200).send(user);
     }

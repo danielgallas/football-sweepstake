@@ -34,13 +34,12 @@ const Login = () => {
         console.log(response);
         navigate("/dashboard");
       } catch (error) {
-        setErrorMsg("User does not exist or wrong password");
+        setErrorMsg(error.response.data.message);
         setError(true);
-        console.log(error);
+        console.log(error.response.data.message);
       }
     } else {
       // REGISTER FUNCTION
-      // Check confirm password
       if (password === confirmPassword) {
         try {
           setError(false);
@@ -80,7 +79,11 @@ const Login = () => {
                 value={username}
                 type="text"
                 placeholder="Username"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => {
+                  setError(false);
+                  console.log(e.target.value);
+                  setUsername(e.target.value);
+                }}
               />
               <FaUserAlt
                 style={{
@@ -97,7 +100,10 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setError(false);
+                  setPassword(e.target.value);
+                }}
               />
               <FaLock
                 style={{
@@ -114,7 +120,10 @@ const Login = () => {
                 type="password"
                 placeholder="Confirm password"
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => {
+                  setError(false);
+                  setConfirmPassword(e.target.value);
+                }}
               />
               <FaLock
                 style={{

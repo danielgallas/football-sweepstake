@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import matches from "../matches.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,9 +10,12 @@ import {
 } from "../features/scores/scoresSlice.js";
 
 function Match() {
-  // const { score1, score2 } = useSelector((store) => store.score);
   const { scores } = useSelector((store) => store.score);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(scores);
+  }, [scores]);
 
   const displayMatches = matches.map((item) => {
     const { team1, team2, _id, date, place, round } = item;
