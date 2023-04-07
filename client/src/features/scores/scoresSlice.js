@@ -3,7 +3,8 @@ import scores from "../../scores";
 
 const initialState = {
   scores: scores,
-  test: 25,
+  user: null,
+  test: 78,
   isLoading: true,
 };
 
@@ -29,12 +30,16 @@ const scoresSlice = createSlice({
       }
       state.scores[payload._id].score2 = state.scores[payload._id].score2 - 1;
     },
+    updateUser: (state) => {
+      state.test = 82;
+      state.user = localStorage.getItem("user");
+    },
   },
 });
 
 // console.log(scoresSlice);
 
-export const { increase1, increase2, decrease1, decrease2 } =
+export const { increase1, increase2, decrease1, decrease2, updateUser } =
   scoresSlice.actions;
 
 export default scoresSlice.reducer;

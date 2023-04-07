@@ -19,6 +19,7 @@ const Login = () => {
     setPassword("");
     setUsername("");
     setConfirmPassword("");
+    localStorage.clear();
   }, [login]);
 
   const handleSubmit = async (e) => {
@@ -31,7 +32,7 @@ const Login = () => {
           "http://localhost:5000/api/v1/auth/login",
           { username, password }
         );
-        console.log(response);
+        localStorage.setItem("user", response.data.username);
         navigate("/dashboard");
       } catch (error) {
         setErrorMsg(error.response.data.message);
@@ -81,7 +82,6 @@ const Login = () => {
                 placeholder="Username"
                 onChange={(e) => {
                   setError(false);
-                  console.log(e.target.value);
                   setUsername(e.target.value);
                 }}
               />

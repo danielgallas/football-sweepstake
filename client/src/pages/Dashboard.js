@@ -4,16 +4,14 @@ import Match from "../components/Match";
 // import { useSelector } from "react-redux";
 
 function Dashboard() {
-  // const { test } = useSelector((store) => store.score);
-
+  const user = localStorage.getItem("user");
   return (
     <article>
       <section className="side">
         <img src={player} alt="" />
       </section>
       <section className="main">
-        {/* <p>NOW THIS NUMBER SHOULD BE TWENTY-THREE: {test}</p> */}
-        <Match />
+        {user ? <Match /> : "User not authorised"}
       </section>
     </article>
   );

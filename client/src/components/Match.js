@@ -7,15 +7,17 @@ import {
   increase2,
   decrease1,
   decrease2,
+  updateUser,
 } from "../features/scores/scoresSlice.js";
 
 function Match() {
   const { scores } = useSelector((store) => store.score);
+  const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(scores);
-  }, [scores]);
+    dispatch(updateUser());
+  }, [dispatch]);
 
   const displayMatches = matches.map((item) => {
     const { team1, team2, _id, date, place, round } = item;
@@ -74,12 +76,13 @@ function Match() {
 
   return (
     <div className="login-container">
-      <p className="title">Round 1</p>
+      <p className="title"> Hi {userScores.score.user}</p>
       <p className="welcome-message">
         What will be the final score? Give us your thought
       </p>
       {displayMatches}
-      <button onClick={() => console.log(scores)}>SUBMIT</button>
+      <button onClick={() => console.log(userScores.score)}>SUBMIT</button>
+      <button onClick={() => dispatch(updateUser())}>UPDATE USER</button>
     </div>
   );
 }
