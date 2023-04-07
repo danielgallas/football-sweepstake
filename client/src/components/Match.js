@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import matches from "../matches.js";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import {
   increase1,
   increase2,
@@ -14,6 +15,20 @@ function Match() {
   const { scores } = useSelector((store) => store.score);
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    console.log("handleSubmit passed");
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/scores/",
+        userScores.score
+      );
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     dispatch(updateUser());
@@ -81,8 +96,7 @@ function Match() {
         What will be the final score? Give us your thought
       </p>
       {displayMatches}
-      <button onClick={() => console.log(userScores.score)}>SUBMIT</button>
-      <button onClick={() => dispatch(updateUser())}>UPDATE USER</button>
+      <button onClick={(e) => handleClick(e)}>SUBMIT</button>
     </div>
   );
 }

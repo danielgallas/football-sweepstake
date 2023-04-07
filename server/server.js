@@ -4,6 +4,7 @@ const cors = require("cors");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 const authrouter = require("./routes/auth");
+const scores = require("./routes/scores");
 
 const port = process.env.PORT || 5000;
 
@@ -27,6 +28,7 @@ app.use(cors({ origin: "http://localhost:3000" }));
 
 // routes
 app.use("/api/v1/auth", authrouter);
+app.use("/api/v1/scores", scores);
 
 // starting the server and the database
 
