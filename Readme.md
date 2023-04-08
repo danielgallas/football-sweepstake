@@ -1,12 +1,12 @@
-#### PROJECT: Gremio Sweepstake
+#### PROJECT: Football Sweepstake
 
 #### TO DO NOW:
 
-- Find a way for these scores to be “attached” to the correct users that are logged in.
-- After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
-- Find a way to “autosave” these results
 - Improve the navigation and the layout (for when I implement 38 matches)
+- Implement "place: away/home" key-value pair in scores array
 - Find a way for users to submit these results permanently to the database (final submit)
+- Find a way to “autosave” these results
+- After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
 - Make some minor corrections (write rules in first page, change name of the app to Football Sweepstake)
 - Publish the whole thing
 
@@ -31,6 +31,7 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Find a way for these scores to be “attached” to the correct users that are logged in.
 - Start THE GUESSING PAGES
 - Recreate page design for guesses (dashboard)
 - DONE... Create userSchema for login (fetch user from database)
