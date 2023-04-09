@@ -13,7 +13,9 @@ import {
 
 function Match() {
   const [page, setPage] = useState(0);
-  const [matchesSlice, setMatchesSlice] = useState([]);
+  const [matchesSlice, setMatchesSlice] = useState(
+    matches.slice(page, page + 2)
+  );
   const { scores } = useSelector((store) => store.score);
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
@@ -27,6 +29,20 @@ function Match() {
       );
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handlePrevPage = () => {
+    page < 2 ? setPage(0) : setPage(page - 2);
+  };
+
+  const handleNextPage = () => {
+    if (page + 2 === matches.length) {
+      setPage(matches.length - 2);
+    } else if (page + 2 > matches.length) {
+      setPage(matches.length - 1);
+    } else {
+      setPage(page + 2);
     }
   };
 
@@ -91,15 +107,15 @@ function Match() {
 
             <p className="teams">{team2}</p>
             <p>
-              {date}, {place}
+              ROUND {round}, {date}, {place}
             </p>
 
             <div className="separator"></div>
           </div>
         );
       })}
-      <button onClick={() => setPage(0)}>FIRST PAGE</button>
-      <button onClick={() => setPage(page + 2)}>NEXT PAGE</button>
+      <button onClick={() => handlePrevPage()}>PREVIOUS PAGE</button>
+      <button onClick={() => handleNextPage()}>NEXT PAGE</button>
       <button onClick={(e) => handleClick(e)}>SUBMIT</button>
     </div>
   );

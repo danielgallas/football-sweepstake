@@ -2,9 +2,9 @@
 
 #### TO DO NOW:
 
-- Improve the navigation and the layout (for when I implement 38 matches)
-- Implement "place: away/home" key-value pair in scores array
+- Improve layout of Guessing Page
 - Find a way for users to submit these results permanently to the database (final submit)
+- Create final landing page (after guesses are done)
 - Find a way to “autosave” these results
 - After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
 - Make some minor corrections (write rules in first page, change name of the app to Football Sweepstake)
@@ -31,6 +31,8 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Implement "place: away/home" key-value pair in scores array
+- Improve the navigation and the layout (for when I implement 38 matches) - finish page changing logic + improve design
 - Find a way for these scores to be “attached” to the correct users that are logged in.
 - Start THE GUESSING PAGES
 - Recreate page design for guesses (dashboard)
