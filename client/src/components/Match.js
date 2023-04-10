@@ -16,6 +16,8 @@ function Match() {
   const [matchesSlice, setMatchesSlice] = useState(
     matches.slice(page, page + 2)
   );
+  const [prevPage, setPrevPage] = useState(true);
+  const [nextPage, setNextPage] = useState(false);
   const { scores } = useSelector((store) => store.score);
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
@@ -34,15 +36,22 @@ function Match() {
 
   const handlePrevPage = () => {
     page < 2 ? setPage(0) : setPage(page - 2);
+    setPrevPage(true);
+    setNextPage(false);
   };
 
   const handleNextPage = () => {
     if (page + 2 === matches.length) {
       setPage(matches.length - 2);
+      setPrevPage(false);
+      setNextPage(true);
     } else if (page + 2 > matches.length) {
       setPage(matches.length - 1);
+      setPrevPage(false);
+      setNextPage(true);
     } else {
       setPage(page + 2);
+      setPrevPage(false);
     }
   };
 
@@ -56,10 +65,10 @@ function Match() {
 
   return (
     <div className="login-container">
-      <p className="title"> Hi {userScores.score.user}</p>
+      {/* <p className="title"> Hi {userScores.score.user}</p>
       <p className="welcome-message">
         What will be the final score? Give us your thought
-      </p>
+      </p> */}
       {matchesSlice.map((item) => {
         const { team1, team2, _id, date, place, round } = item;
 
@@ -85,7 +94,9 @@ function Match() {
               >
                 <FaPlusCircle />
               </button>
-              <p>x</p>
+            </span>
+            <p>x</p>
+            <span className="score">
               <button
                 onClick={() => {
                   dispatch(decrease2({ _id }));
@@ -114,8 +125,12 @@ function Match() {
           </div>
         );
       })}
-      <button onClick={() => handlePrevPage()}>PREVIOUS PAGE</button>
-      <button onClick={() => handleNextPage()}>NEXT PAGE</button>
+      <button disabled={prevPage} onClick={() => handlePrevPage()}>
+        PREVIOUS PAGE
+      </button>
+      <button disabled={nextPage} onClick={() => handleNextPage()}>
+        NEXT PAGE
+      </button>
       <button onClick={(e) => handleClick(e)}>SUBMIT</button>
     </div>
   );

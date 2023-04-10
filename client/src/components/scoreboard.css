@@ -1,11 +1,13 @@
 .teams {
-    padding: 0px;
-    font-size: 1.3em;
-    background-color: beige;
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 5px;
+    font-size: 2em;
 }
 
 .score {
-    padding: 0px;
-    font-size:1em;
-    background-color: aquamarine;
+    background-color: whitesmoke;
+    margin: 5px;
+    padding: 5px;
+    font-size:2em;
 }

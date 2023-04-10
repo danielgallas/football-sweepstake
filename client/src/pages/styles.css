@@ -32,6 +32,7 @@ section.side {
 }
 
 .login-container{
+    background-color: beige;
     max-width: 450px;
     padding: 24px;
     display: flex;
