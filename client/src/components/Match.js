@@ -72,7 +72,6 @@ function Match() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(changeSubmit());
-    // console.log(userScores.score.finalSubmit);
 
     try {
       await axios.post(

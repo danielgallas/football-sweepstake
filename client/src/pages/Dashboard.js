@@ -3,6 +3,7 @@ import "../components/scoreboard.css";
 import Match from "../components/Match";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import DisplayResults from "../components/DisplayResults";
 
 const Dashboard = () => {
   const user = localStorage.getItem("user");
@@ -30,7 +31,7 @@ const Dashboard = () => {
       <section className="main">
         {user ? (
           prevUser ? (
-            "User already entered results"
+            <DisplayResults />
           ) : (
             <Match />
           )

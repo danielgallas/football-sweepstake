@@ -75,10 +75,7 @@ const Login = () => {
         <div className="login-container">
           <p className="title">Gremio Sweepstake</p>
           <div className="separator"></div>
-          <p className="welcome-message">
-            Please, provide login credential to proceed and have access to all
-            our services
-          </p>
+          <p className="welcome-message">Please login or register</p>
           <p className={error ? "error-message" : "null"}>{errorMsg}</p>
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-control">
