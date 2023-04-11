@@ -11,7 +11,8 @@ const Dashboard = () => {
 
   const getUser = async () => {
     try {
-      const url = "http://localhost:5000/api/v1/scores/" + user;
+      const url =
+        "https://football-sweepstake.onrender.com/api/v1/scores/" + user;
       const userFromDB = await axios.get(url);
       setPrevUser(userFromDB.data.scores.user);
     } catch (error) {

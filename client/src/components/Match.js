@@ -75,7 +75,7 @@ function Match() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/v1/scores/",
+        "https://football-sweepstake.onrender.com/api/v1/scores/",
         userScores.score
       );
     } catch (error) {

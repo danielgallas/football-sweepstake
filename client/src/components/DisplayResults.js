@@ -9,7 +9,8 @@ function DisplayResults() {
 
   const getUser = async () => {
     try {
-      const url = "http://localhost:5000/api/v1/scores/" + user;
+      const url =
+        "https://football-sweepstake.onrender.com/api/v1/scores/" + user;
       const userFromDB = await axios.get(url);
       setUserData(userFromDB.data.scores.scores);
       setUserName(userFromDB.data.scores);

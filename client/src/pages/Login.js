@@ -29,7 +29,7 @@ const Login = () => {
       // LOGIN FUNCTION
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/auth/login",
+          "https://football-sweepstake.onrender.com/api/v1/auth/login",
           { username, password }
         );
         localStorage.setItem("user", response.data.username);
@@ -45,7 +45,7 @@ const Login = () => {
         try {
           setError(false);
           const response = await axios.post(
-            "http://localhost:5000/api/v1/auth/register",
+            "https://football-sweepstake.onrender.com/api/v1/auth/register",
             {
               username,
               password,
