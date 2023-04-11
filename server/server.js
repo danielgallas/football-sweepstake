@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000;
 
 // middleware
 app.use(express.json());
-app.use(cors({ origin: "https://football-sweepstake.netlify.app/" }));
+app.use(cors({ origin: "https://football-sweepstake.netlify.app" }));
 
 // Solution to CORS problem
 // app.use(function (req, res, next) {
