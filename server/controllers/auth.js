@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 const register = async (req, res) => {
   try {
@@ -22,7 +23,9 @@ const login = async (req, res) => {
     const user = await User.findOne({ username: username });
     if (!user) {
       return res.status(401).send({ message: "No such user in our database" });
-    } else if (user.password != password) {
+    }
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
       return res.status(401).send({ message: "Wrong password" });
     } else {
       res.status(200).send(user);
