@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const scoresSchema = new mongoose.Schema({
   scores: { type: Array },
   user: { type: String },
-  test: { type: Number },
+  suarez: { type: Number },
+  posicao: { type: Number },
   isLoading: { type: Boolean },
 });
 

@@ -33,6 +33,7 @@ section.side {
 
 .login-container{
     max-width: 450px;
+    width: 90vw;
     padding: 24px;
     display: flex;
     flex-direction: column;

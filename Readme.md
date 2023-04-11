@@ -2,8 +2,7 @@
 
 #### TO DO NOW:
 
-- Improve layout of Guessing Page
-- Shorten table to 19 results
+- Add two extra questions
 - Find a way for users to submit these results permanently to the database (final submit)
 - Create final landing page (after guesses are done)
 - Find a way to “autosave” these results
@@ -32,6 +31,8 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Improve layout of Guessing Page
+- Shorten table to 19 results
 - Disable button for pages
 - Implement "place: away/home" key-value pair in scores array
 - Improve the navigation and the layout (for when I implement 38 matches) - finish page changing logic + improve design
