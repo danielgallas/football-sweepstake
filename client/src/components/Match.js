@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
+import {
+  FaPlusCircle,
+  FaMinusCircle,
+  FaArrowCircleLeft,
+  FaArrowCircleRight,
+} from "react-icons/fa";
 import matches from "../matches.js";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+// import axios from "axios";
 import {
   increase1,
   increase2,
@@ -12,6 +18,8 @@ import {
 } from "../features/scores/scoresSlice.js";
 
 function Match() {
+  const navigate = useNavigate();
+
   const [page, setPage] = useState(0);
   const [matchesSlice, setMatchesSlice] = useState(
     matches.slice(page, page + 2)
@@ -22,26 +30,31 @@ function Match() {
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(
-        "http://localhost:5000/api/v1/scores/",
-        userScores.score
-      );
-    } catch (error) {
-      console.log(error);
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post(
+  //       "http://localhost:5000/api/v1/scores/",
+  //       userScores.score
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const handlePrevPage = () => {
+    if (page < 3) {
+      setPage(0);
+      setPrevPage(true);
+    } else {
+      setPage(page - 2);
+      setPrevPage(false);
+      setNextPage(false);
     }
   };
 
-  const handlePrevPage = () => {
-    page < 2 ? setPage(0) : setPage(page - 2);
-    setPrevPage(true);
-    setNextPage(false);
-  };
-
   const handleNextPage = () => {
-    if (page + 2 === matches.length) {
+    if (page === 20) {
       setPage(matches.length - 2);
       setPrevPage(false);
       setNextPage(true);
@@ -49,6 +62,7 @@ function Match() {
       setPage(matches.length - 1);
       setPrevPage(false);
       setNextPage(true);
+      navigate("../extraquestions");
     } else {
       setPage(page + 2);
       setPrevPage(false);
@@ -65,10 +79,10 @@ function Match() {
 
   return (
     <div className="login-container">
-      {/* <p className="title"> Hi {userScores.score.user}</p>
       <p className="welcome-message">
-        What will be the final score? Give us your thought
-      </p> */}
+        Hi <span className="user">{userScores.score.user}</span>. What will be
+        the final scores?
+      </p>
       {matchesSlice.map((item) => {
         const { team1, team2, _id, date, place, round } = item;
 
@@ -80,6 +94,7 @@ function Match() {
 
             <span className="score">
               <button
+                className="score-number"
                 onClick={() => {
                   dispatch(decrease1({ _id }));
                 }}
@@ -88,6 +103,7 @@ function Match() {
               </button>
               {scores[_id].score1}
               <button
+                className="score-number"
                 onClick={() => {
                   dispatch(increase1({ _id }));
                 }}
@@ -98,6 +114,7 @@ function Match() {
             <p>x</p>
             <span className="score">
               <button
+                className="score-number"
                 onClick={() => {
                   dispatch(decrease2({ _id }));
                 }}
@@ -106,6 +123,7 @@ function Match() {
               </button>
               {scores[_id].score2}
               <button
+                className="score-number"
                 onClick={() => {
                   dispatch(increase2({ _id }));
                 }}
@@ -117,21 +135,33 @@ function Match() {
             {/* END OF SCOREBOARD */}
 
             <p className="teams">{team2}</p>
-            <p>
-              ROUND {round}, {date}, {place}
+            <p className="small-print">
+              <b>ROUND {round}</b>, {date}, {place}
             </p>
-
             <div className="separator"></div>
           </div>
         );
       })}
-      <button disabled={prevPage} onClick={() => handlePrevPage()}>
-        PREVIOUS PAGE
-      </button>
-      <button disabled={nextPage} onClick={() => handleNextPage()}>
-        NEXT PAGE
-      </button>
-      <button onClick={(e) => handleClick(e)}>SUBMIT</button>
+      <div className="pages">
+        <button
+          className="btn-page"
+          disabled={prevPage}
+          onClick={() => handlePrevPage()}
+        >
+          <FaArrowCircleLeft />
+        </button>
+        <button onClick={() => console.log(page)}>
+          {page < 18 ? `Rounds ${page + 1} & ${page + 2}` : "Round 19"}
+        </button>
+        <button
+          className="btn-page"
+          disabled={nextPage}
+          onClick={() => handleNextPage()}
+        >
+          <FaArrowCircleRight />
+        </button>
+      </div>
+      {/* <button onClick={(e) => handleClick(e)}>SUBMIT</button> */}
     </div>
   );
 }
