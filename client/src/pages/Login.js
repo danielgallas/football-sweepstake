@@ -46,11 +46,17 @@ const Login = () => {
           setError(false);
           const response = await axios.post(
             "http://localhost:5000/api/v1/auth/register",
-            { username, password }
+            {
+              username,
+              password,
+            }
           );
-          console.log(response.data);
+          // console.log(response.data.username);
+          localStorage.setItem("user", response.data.username);
+          navigate("/dashboard");
         } catch (error) {
-          console.log(error);
+          setErrorMsg(error.response.data.message);
+          setError(true);
         }
       } else {
         setErrorMsg("Passwords do not match");

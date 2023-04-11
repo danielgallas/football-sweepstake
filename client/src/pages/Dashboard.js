@@ -1,20 +1,45 @@
 import player from "../pages/images/player.svg";
 import "../components/scoreboard.css";
 import Match from "../components/Match";
-// import { useSelector } from "react-redux";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-function Dashboard() {
+const Dashboard = () => {
   const user = localStorage.getItem("user");
+  const [prevUser, setPrevUser] = useState(null);
+
+  const getUser = async () => {
+    try {
+      const url = "http://localhost:5000/api/v1/scores/" + user;
+      const userFromDB = await axios.get(url);
+      setPrevUser(userFromDB.data.scores.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <article>
       <section className="side">
         <img src={player} alt="" />
       </section>
       <section className="main">
-        {user ? <Match /> : "User not authorised"}
+        {user ? (
+          prevUser ? (
+            "User already entered results"
+          ) : (
+            <Match />
+          )
+        ) : (
+          "User not authorised"
+        )}
       </section>
     </article>
   );
-}
+};
 
 export default Dashboard;

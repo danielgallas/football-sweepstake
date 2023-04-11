@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import matches from "../matches.js";
 import { useDispatch, useSelector } from "react-redux";
-// import axios from "axios";
+import axios from "axios";
 import {
   increase1,
   increase2,
@@ -35,18 +35,6 @@ function Match() {
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await axios.post(
-  //       "http://localhost:5000/api/v1/scores/",
-  //       userScores.score
-  //     );
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handlePrevPage = () => {
     if (page < 3) {
@@ -81,9 +69,20 @@ function Match() {
     setMatchesSlice(matches.slice(page, page + 2));
   }, [page]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(changeSubmit());
+    // console.log(userScores.score.finalSubmit);
+
+    try {
+      await axios.post(
+        "http://localhost:5000/api/v1/scores/",
+        userScores.score
+      );
+    } catch (error) {
+      console.log(error);
+    }
+
     navigate("../thanks");
   };
 
