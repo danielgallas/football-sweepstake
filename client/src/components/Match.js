@@ -18,12 +18,14 @@ import {
   increaseSuarez,
   decreaseSuarez,
   updateUser,
+  changeSubmit,
 } from "../features/scores/scoresSlice.js";
+import { useNavigate } from "react-router-dom";
 
 function Match() {
   const [page, setPage] = useState(0);
-  const [match, setMatch] = useState(false);
-  // const [submit, setSubmit] = useState(false);
+  const [match, setMatch] = useState(true);
+  const [submit, setSubmit] = useState(false);
   const [matchesSlice, setMatchesSlice] = useState(
     matches.slice(page, page + 2)
   );
@@ -32,6 +34,7 @@ function Match() {
   const { scores } = useSelector((store) => store.score);
   const userScores = useSelector((store) => store);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const handleClick = async (e) => {
   //   e.preventDefault();
@@ -77,6 +80,26 @@ function Match() {
   useEffect(() => {
     setMatchesSlice(matches.slice(page, page + 2));
   }, [page]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(changeSubmit());
+    navigate("../thanks");
+  };
+
+  const submitDisplay = (
+    <>
+      <div className="final-message">
+        Are you sure you want to submit these results?
+      </div>
+      <button className="submit" onClick={(e) => handleSubmit(e)}>
+        Submit!
+      </button>
+      <button className="review" onClick={() => setSubmit(false)}>
+        <u>Review my results</u>
+      </button>
+    </>
+  );
 
   const extraDisplay = (
     <div className="login-container">
@@ -140,7 +163,7 @@ function Match() {
           <FaArrowCircleLeft />
         </button>
         <p>POSITION & SUAREZ</p>
-        <button className="btn-page" onClick={() => console.log(page)}>
+        <button className="btn-page" onClick={() => setSubmit(true)}>
           <FaArrowCircleRight />
         </button>
       </div>
@@ -234,9 +257,10 @@ function Match() {
   return (
     <div className="login-container">
       <p className="welcome-message">
-        Hi <span className="user">{userScores.score.user}</span>. Guess away!
+        Hi <span className="user">{userScores.score.user}</span>.{" "}
+        {!submit ? "Enter your results" : "Thank you for your input!"}
       </p>
-      {match ? matchDisplay : extraDisplay}
+      {match ? matchDisplay : !submit ? extraDisplay : submitDisplay}
     </div>
   );
 }

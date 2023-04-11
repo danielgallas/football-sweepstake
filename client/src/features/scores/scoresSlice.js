@@ -7,6 +7,7 @@ const initialState = {
   suarez: 15,
   posicao: 1,
   isLoading: true,
+  finalSubmit: false,
 };
 
 const scoresSlice = createSlice({
@@ -59,6 +60,9 @@ const scoresSlice = createSlice({
     updateUser: (state) => {
       state.user = localStorage.getItem("user");
     },
+    changeSubmit: (state) => {
+      state.finalSubmit = true;
+    },
   },
 });
 
@@ -73,6 +77,7 @@ export const {
   decreasePosicao,
   increaseSuarez,
   decreaseSuarez,
+  changeSubmit,
   updateUser,
 } = scoresSlice.actions;
 

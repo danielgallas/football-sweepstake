@@ -162,6 +162,18 @@ button.submit:hover {
     opacity: 50%;
 }
 
+.final-message{
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.review{
+    cursor: pointer;
+    padding-top: 50px
+}
+
 /* RESPONSIVE  */
 
 @media (max-width: 780px) {

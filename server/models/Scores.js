@@ -6,6 +6,7 @@ const scoresSchema = new mongoose.Schema({
   suarez: { type: Number },
   posicao: { type: Number },
   isLoading: { type: Boolean },
+  finalSubmit: { type: Boolean },
 });
 
 module.exports = mongoose.model("Scores", scoresSchema);

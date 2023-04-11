@@ -2,13 +2,15 @@
 
 #### TO DO NOW:
 
-- Add two extra questions
-- Find a way for users to submit these results permanently to the database (final submit)
-- Create final landing page (after guesses are done)
+- in server block users with same name (query)
+- after register, send user to dashboard
+- check for: finalSubmit in mongoDB
+- on opening page check if user already submitted results
+- if yes: display his/her results
+- add password encrypt
+- \*\*\*\* Publish the whole thing
+- Send to people
 - Find a way to “autosave” these results
-- After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
-- Make some minor corrections (write rules in first page, change name of the app to Football Sweepstake)
-- Publish the whole thing
 
 #### THE MISSION:
 
@@ -31,6 +33,11 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Find a way for users to submit these results permanently to the database (final submit)
+- After GUESSING PAGE is done, go back to login/register and start issuing JWT and Bcrypting passwords
+- Make some minor corrections (write rules in first page, change name of the app to Football Sweepstake)
+- Create final landing page (after guesses are done)
+- Add two extra questions
 - Improve layout of Guessing Page
 - Shorten table to 19 results
 - Disable button for pages
