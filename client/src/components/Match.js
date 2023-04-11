@@ -88,7 +88,7 @@ function Match() {
   const submitDisplay = (
     <>
       <div className="final-message">
-        Are you sure you want to submit these results?
+        Are you sure you want to submit these predictions?
       </div>
       <button className="submit" onClick={(e) => handleSubmit(e)}>
         Submit!
@@ -101,7 +101,7 @@ function Match() {
 
   const extraDisplay = (
     <div className="login-container">
-      <p>Gremio will come in what place?</p>
+      <p>In what rank will Gremio end the league?</p>
 
       {/* POSICAO BOARD */}
 
@@ -256,7 +256,7 @@ function Match() {
     <div className="login-container">
       <p className="welcome-message">
         Hi <span className="user">{userScores.score.user}</span>.{" "}
-        {!submit ? "Enter your results" : "Thank you for your input!"}
+        {!submit ? "Enter your predictions" : "Thank you for your input!"}
       </p>
       {match ? matchDisplay : !submit ? extraDisplay : submitDisplay}
     </div>

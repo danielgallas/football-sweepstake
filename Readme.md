@@ -2,11 +2,8 @@
 
 #### TO DO NOW:
 
-- add password encrypt
-- improve thank you page
 - \*\*\*\* Publish the whole thing
 - Send to people
-- Find a way to “autosave” these results
 
 #### THE MISSION:
 
@@ -29,6 +26,9 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- improve thank you page
+- NOT DONE: Find a way to “autosave” these results
+- add password encrypt
 - if yes: display his/her results
 - check for: finalSubmit in mongoDB
 - on opening page check if user already submitted results

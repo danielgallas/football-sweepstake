@@ -9,10 +9,12 @@ function Thanks() {
         <img src={player} alt="" />
       </section>
       <section className="main">
-        <p>Thank you, {user}!</p>
-        <p>
-          <Link to="/dashboard">Click here to see your results</Link>
-        </p>
+        <div className="welcome-message">
+          <h1>Thank you, {user}!</h1>
+          <p>
+            <Link to="/dashboard">Click here to see your predictions</Link>
+          </p>
+        </div>
       </section>
     </article>
   );
