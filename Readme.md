@@ -2,7 +2,7 @@
 
 #### TO DO NOW:
 
-- Update admin page with final result of match - think about the logic
+- create a table of winners
 
 #### THE MISSION:
 
@@ -26,6 +26,7 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Update admin page with final result of match - think about the logic
 - Create a page that gets all the results (for back up) - finish it with the final layout
 - Change Axios URL in client
 - \*\*\*\* Publish the whole thing

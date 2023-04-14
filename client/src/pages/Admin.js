@@ -3,10 +3,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import matches from "../matches";
 import results from "../results";
+import DisplayWinners from "../components/DisplayWinners";
 
 const Admin = () => {
   const [allData, setAllData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  let winners = [];
 
   const user = localStorage.getItem("user");
   const url = "http://localhost:5000";
@@ -19,7 +21,7 @@ const Admin = () => {
         const response = await axios.get(url + "/api/v1/scores");
         if (response.data) {
           setAllData(response.data.scores);
-          console.log(allData);
+          // console.log(allData);
         } else {
           setAllData(null);
         }
@@ -37,6 +39,7 @@ const Admin = () => {
   if (!allData) {
     return <p>No data...</p>;
   } else {
+    // Function that calculates points from each user
     const calculate = (prediction1, prediction2, final1, final2) => {
       if (final1 === final2) {
         if (prediction1 === prediction2) {
@@ -65,8 +68,9 @@ const Admin = () => {
         }
         return 0;
       }
-      return "DID NOT EVALUATE";
+      return null;
     };
+    // END OF Function that calculates points from each user
 
     return (
       <article>
@@ -77,7 +81,11 @@ const Admin = () => {
           <div className="welcome-message">
             <h1>Hi, {user}!</h1>
             <div>
+              {winners ? <DisplayWinners winners={winners} /> : "nothing"}
+            </div>
+            <div>
               {allData.map((item) => {
+                winners.push({ user: item.user, points: 0 });
                 return (
                   <div key={item._id}>
                     <div className="separator"></div>
@@ -93,12 +101,15 @@ const Admin = () => {
                           <span>
                             {results[matchround._id] ? (
                               <b>
-                                {calculate(
-                                  matchround.score1,
-                                  matchround.score2,
-                                  results[matchround._id].finalScore1,
-                                  results[matchround._id].finalScore2
-                                )}{" "}
+                                {
+                                  (winners[winners.length - 1].points =
+                                    calculate(
+                                      matchround.score1,
+                                      matchround.score2,
+                                      results[matchround._id].finalScore1,
+                                      results[matchround._id].finalScore2
+                                    ))
+                                }{" "}
                                 POINTS
                               </b>
                             ) : (
@@ -108,7 +119,7 @@ const Admin = () => {
                         </div>
                       ))}
                     </div>
-                    <div>Suarez will score {item.suarez} goals.</div>
+                    <div>Suarez will score {item.suarez} goals. </div>
                     <div>Gremio will end the league in: {item.posicao}</div>
                   </div>
                 );
