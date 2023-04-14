@@ -2,6 +2,7 @@ import player from "../pages/images/player.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import matches from "../matches";
+import results from "../results";
 
 const Admin = () => {
   const [allData, setAllData] = useState(null);
@@ -36,6 +37,37 @@ const Admin = () => {
   if (!allData) {
     return <p>No data...</p>;
   } else {
+    const calculate = (prediction1, prediction2, final1, final2) => {
+      if (final1 === final2) {
+        if (prediction1 === prediction2) {
+          if (prediction1 === final1 && prediction2 === final2) {
+            return 300;
+          }
+          return 100;
+        }
+        return 0;
+      }
+      if (final1 > final2) {
+        if (prediction1 > prediction2) {
+          if (prediction1 === final1 && prediction2 === final2) {
+            return 300;
+          }
+          return 100;
+        }
+        return 0;
+      }
+      if (final1 < final2) {
+        if (prediction1 < prediction2) {
+          if (prediction1 === final1 && prediction2 === final2) {
+            return 300;
+          }
+          return 100;
+        }
+        return 0;
+      }
+      return "DID NOT EVALUATE";
+    };
+
     return (
       <article>
         <section className="side">
@@ -44,7 +76,6 @@ const Admin = () => {
         <section className="main">
           <div className="welcome-message">
             <h1>Hi, {user}!</h1>
-            {/* <p>These are all the results:</p> */}
             <div>
               {allData.map((item) => {
                 return (
@@ -58,7 +89,22 @@ const Admin = () => {
                         <div key={matchround._id}>
                           Round {matches[matchround._id].round}:{" "}
                           {matches[matchround._id].team1} {matchround.score1} x{" "}
-                          {matchround.score2} {matches[matchround._id].team2}
+                          {matchround.score2} {matches[matchround._id].team2}{" "}
+                          <span>
+                            {results[matchround._id] ? (
+                              <b>
+                                {calculate(
+                                  matchround.score1,
+                                  matchround.score2,
+                                  results[matchround._id].finalScore1,
+                                  results[matchround._id].finalScore2
+                                )}{" "}
+                                POINTS
+                              </b>
+                            ) : (
+                              ""
+                            )}
+                          </span>
                         </div>
                       ))}
                     </div>
