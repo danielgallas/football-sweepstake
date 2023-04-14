@@ -2,8 +2,7 @@
 
 #### TO DO NOW:
 
-- \*\*\*\* Publish the whole thing
-- Send to people
+- Update admin page with final result of match - think about the logic
 
 #### THE MISSION:
 
@@ -19,6 +18,7 @@ There will be certain stages of implementation:
 
 #### LATER:
 
+- put isLoading functionality in the DisplayResults component
 - issue JWT tokens
 - persist JWT tokens (refresh tokens)
 - create validators for register/login
@@ -26,6 +26,10 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Create a page that gets all the results (for back up) - finish it with the final layout
+- Change Axios URL in client
+- \*\*\*\* Publish the whole thing
+- Send to people
 - improve thank you page
 - NOT DONE: Find a way to “autosave” these results
 - add password encrypt

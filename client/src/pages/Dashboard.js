@@ -8,12 +8,12 @@ import DisplayResults from "../components/DisplayResults";
 const Dashboard = () => {
   const user = localStorage.getItem("user");
   const [prevUser, setPrevUser] = useState(null);
+  let url = "http://localhost:5000";
+  // let url = "https://football-sweepstake.onrender.com";
 
   const getUser = async () => {
     try {
-      const url =
-        "https://football-sweepstake.onrender.com/api/v1/scores/" + user;
-      const userFromDB = await axios.get(url);
+      const userFromDB = await axios.get(url + "/api/v1/scores/" + user);
       setPrevUser(userFromDB.data.scores.user);
     } catch (error) {
       console.log(error);

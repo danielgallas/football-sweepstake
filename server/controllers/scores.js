@@ -12,7 +12,6 @@ const create = async (req, res) => {
 
 const getData = async (req, res) => {
   try {
-    // console.log(req.params.user);
     const scores = await Scores.findOne({ user: req.params.user });
     res.status(200).json({ scores });
   } catch (error) {
@@ -20,4 +19,13 @@ const getData = async (req, res) => {
   }
 };
 
-module.exports = { create, getData };
+const getAllData = async (req, res) => {
+  try {
+    const scores = await Scores.find({});
+    res.status(200).json({ scores });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+module.exports = { create, getData, getAllData };

@@ -8,9 +8,13 @@ const scores = require("./routes/scores");
 
 const port = process.env.PORT || 5000;
 
+const url = "http://localhost:3000";
+
+// const url = "https://football-sweepstake.netlify.app";
+
 // middleware
 app.use(express.json());
-app.use(cors({ origin: "https://football-sweepstake.netlify.app" }));
+app.use(cors({ origin: url }));
 
 // Solution to CORS problem
 // app.use(function (req, res, next) {

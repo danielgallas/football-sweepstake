@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const url = "http://localhost:5000";
+  // const url = "https://football-sweepstake.onrender.com";
 
   const [login, setLogin] = useState(true);
   const [username, setUsername] = useState("");
@@ -28,10 +30,10 @@ const Login = () => {
     if (login) {
       // LOGIN FUNCTION
       try {
-        const response = await axios.post(
-          "https://football-sweepstake.onrender.com/api/v1/auth/login",
-          { username, password }
-        );
+        const response = await axios.post(url + "/api/v1/auth/login", {
+          username,
+          password,
+        });
         localStorage.setItem("user", response.data.username);
         navigate("/dashboard");
       } catch (error) {
@@ -44,13 +46,10 @@ const Login = () => {
       if (password === confirmPassword) {
         try {
           setError(false);
-          const response = await axios.post(
-            "https://football-sweepstake.onrender.com/api/v1/auth/register",
-            {
-              username,
-              password,
-            }
-          );
+          const response = await axios.post(url + "/api/v1/auth/login", {
+            username,
+            password,
+          });
           // console.log(response.data.username);
           localStorage.setItem("user", response.data.username);
           navigate("/dashboard");

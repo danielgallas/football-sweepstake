@@ -23,6 +23,9 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function Match() {
+  const url = "http://localhost:5000";
+  // const url = "https://football-sweepstake.onrender.com/api/v1/auth/login";
+
   const [page, setPage] = useState(0);
   const [match, setMatch] = useState(true);
   const [submit, setSubmit] = useState(false);
@@ -74,10 +77,7 @@ function Match() {
     dispatch(changeSubmit());
 
     try {
-      await axios.post(
-        "https://football-sweepstake.onrender.com/api/v1/scores/",
-        userScores.score
-      );
+      await axios.post(url + "/api/v1/scores/", userScores.score);
     } catch (error) {
       console.log(error);
     }
