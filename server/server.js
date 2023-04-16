@@ -112,9 +112,9 @@ const scores = require("./routes/scores");
 
 const port = process.env.PORT || 5000;
 
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
 
-// const url = "https://football-sweepstake.netlify.app";
+const url = "https://football-sweepstake.netlify.app";
 
 // middleware
 app.use(express.json());
