@@ -2,17 +2,28 @@ import player from "../pages/images/player.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import matches from "../matches";
-import results from "../results";
 import DisplayWinners from "../components/DisplayWinners";
+// import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
-const Admin = () => {
+const CheckResults = () => {
   const [allData, setAllData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  // const [score1, setScore1] = useState(0);
+  // const [score2, setScore2] = useState(0);
   let winners = [];
 
-  const user = localStorage.getItem("user");
-  const url = "http://localhost:5000";
-  // const url = "https://football-sweepstake.onrender.com/api/v1/scores/" + user;
+  const results = [
+    {
+      _id: 0,
+      round: 1,
+      finalScore1: 0,
+      finalScore2: 0,
+    },
+  ];
+
+  // const user = localStorage.getItem("user");
+  // const url = "http://localhost:5000";
+  const url = "https://football-sweepstake.onrender.com";
 
   useEffect(() => {
     setIsLoading(true);
@@ -32,6 +43,18 @@ const Admin = () => {
     };
     getAllData();
   }, []);
+
+  // useEffect(() => {
+  //   console.log(results);
+  //   if (score1 < 0) {
+  //     setScore1(0);
+  //   }
+  //   if (score2 < 0) {
+  //     setScore2(0);
+  //   }
+  //   results[0].finalScore1 = score1;
+  //   results[0].finalScore2 = score2;
+  // }, [score1, score2]);
 
   if (isLoading) {
     return <p>Is loading...</p>;
@@ -79,7 +102,56 @@ const Admin = () => {
         </section>
         <section className="main">
           <div className="welcome-message">
-            <h1>Hi, {user}!</h1>
+            {/* <h1>Hi, {user}!</h1> */}
+
+            {/* FIRST MATCH RESULTS */}
+            {/* <div className="scorebox">
+              <p className="teams">Gremio</p>
+
+
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    setScore1(score1 - 1);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {score1}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    setScore1(score1 + 1);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+              <p>x</p>
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    setScore2(score2 - 1);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {score2}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    setScore2(score2 + 1);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+
+              <p className="teams">Santos</p>
+            </div> */}
+            {/* END OF FIRST MATCH RESULTS */}
             <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
             </div>
@@ -132,4 +204,4 @@ const Admin = () => {
   }
 };
 
-export default Admin;
+export default CheckResults;

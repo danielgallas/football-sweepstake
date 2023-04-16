@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  const url = "http://localhost:5000";
-  // const url = "https://football-sweepstake.onrender.com";
+  // const url = "http://localhost:5000";
+  const url = "https://football-sweepstake.onrender.com";
 
   const [login, setLogin] = useState(true);
   const [username, setUsername] = useState("");

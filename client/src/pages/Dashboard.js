@@ -1,15 +1,16 @@
 import player from "../pages/images/player.svg";
 import "../components/scoreboard.css";
-import Match from "../components/Match";
+// import Match from "../components/Match";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DisplayResults from "../components/DisplayResults";
+import CheckResults from "./Admin";
 
 const Dashboard = () => {
   const user = localStorage.getItem("user");
   const [prevUser, setPrevUser] = useState(null);
-  let url = "http://localhost:5000";
-  // let url = "https://football-sweepstake.onrender.com";
+  // let url = "http://localhost:5000";
+  let url = "https://football-sweepstake.onrender.com";
 
   const getUser = async () => {
     try {
@@ -34,7 +35,7 @@ const Dashboard = () => {
           prevUser ? (
             <DisplayResults />
           ) : (
-            <Match />
+            <CheckResults />
           )
         ) : (
           "User not authorised"
