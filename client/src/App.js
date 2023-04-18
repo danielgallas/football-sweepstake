@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Thanks from "./pages/Thanks";
 import CheckResults from "./pages/Admin";
+import CheckResults2 from "./pages/Admin2";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/thanks" element={<Thanks />} />
         <Route path="/results" element={<CheckResults />} />
+        <Route path="/results2" element={<CheckResults2 />} />
       </Routes>
     </BrowserRouter>
   );

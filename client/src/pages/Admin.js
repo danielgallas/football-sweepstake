@@ -1,8 +1,8 @@
 import player from "../pages/images/player.svg";
 import instance from "../components/axios";
 import { useState, useEffect } from "react";
-import matches from "../matches";
-import results from "../results";
+import matches from "../data/matches";
+import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
 // import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 

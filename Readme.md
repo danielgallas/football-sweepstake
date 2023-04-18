@@ -3,6 +3,7 @@
 #### TO DO NOW:
 
 - redo the admin page with React Redux Toolkit
+- introduce leaders into the Admin2 page
 - create a way to add points
 - create a better layout for the page (responsive)
 - find a way to dinamically edit results

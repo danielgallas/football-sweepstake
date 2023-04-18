@@ -5,7 +5,7 @@ import {
   FaArrowCircleLeft,
   FaArrowCircleRight,
 } from "react-icons/fa";
-import matches from "../matches.js";
+import matches from "../data/matches.js";
 import { useDispatch, useSelector } from "react-redux";
 import instance from "../components/axios";
 import {

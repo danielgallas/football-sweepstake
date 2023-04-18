@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import instance from "../components/axios";
-import matches from "../matches.js";
+import matches from "../data/matches.js";
 
 function DisplayResults() {
   const user = localStorage.getItem("user");
