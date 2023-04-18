@@ -2,13 +2,11 @@ import player from "../pages/images/player.svg";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import "./styles.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import instance from "../components/axios";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
-  // const url = "http://localhost:5000";
-  const url = "https://football-sweepstake.onrender.com";
 
   const [login, setLogin] = useState(true);
   const [username, setUsername] = useState("");
@@ -30,7 +28,7 @@ const Login = () => {
     if (login) {
       // LOGIN FUNCTION
       try {
-        const response = await axios.post(url + "/api/v1/auth/login", {
+        const response = await instance.post("/api/v1/auth/login", {
           username,
           password,
         });
@@ -46,7 +44,7 @@ const Login = () => {
       if (password === confirmPassword) {
         try {
           setError(false);
-          const response = await axios.post(url + "/api/v1/auth/login", {
+          const response = await instance.post("/api/v1/auth/login", {
             username,
             password,
           });

@@ -2,7 +2,10 @@
 
 #### TO DO NOW:
 
-- create a table of winners
+- redo the admin page with React Redux Toolkit
+- create a way to add points
+- create a better layout for the page (responsive)
+- find a way to dinamically edit results
 
 #### THE MISSION:
 
@@ -26,6 +29,8 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- create an easy way to change axios
+- create a table of winners
 - Update admin page with final result of match - think about the logic
 - Create a page that gets all the results (for back up) - finish it with the final layout
 - Change Axios URL in client

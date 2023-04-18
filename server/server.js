@@ -6,6 +6,11 @@ require("dotenv").config();
 const authrouter = require("./routes/auth");
 const scores = require("./routes/scores");
 
+const port = process.env.PORT || 5000;
+
+const url = "http://localhost:3000";
+// const url = "https://football-sweepstake.netlify.app";
+
 // Scraping with puppeteer
 // const puppeteer = require("puppeteer");
 
@@ -109,12 +114,6 @@ const scores = require("./routes/scores");
 // // daniel();
 
 // END OF Web scraper code
-
-const port = process.env.PORT || 5000;
-
-// const url = "http://localhost:3000";
-
-const url = "https://football-sweepstake.netlify.app";
 
 // middleware
 app.use(express.json());

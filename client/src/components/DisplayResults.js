@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import instance from "../components/axios";
 import matches from "../matches.js";
 
 function DisplayResults() {
   const user = localStorage.getItem("user");
-  const url = "http://localhost:5000";
-  // const url = "https://football-sweepstake.onrender.com/api/v1/scores/" + user;
 
   const [userData, setUserData] = useState([]);
   const [userName, setUserName] = useState([]);
 
   const getUser = async () => {
     try {
-      const userFromDB = await axios.get(url + "/api/v1/scores/" + user);
+      const userFromDB = await instance.get("/api/v1/scores/" + user);
       setUserData(userFromDB.data.scores.scores);
       setUserName(userFromDB.data.scores);
     } catch (error) {
