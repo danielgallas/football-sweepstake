@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import matches from "../data/matches";
 import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
+import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
@@ -68,6 +69,13 @@ const CheckResults = () => {
     };
     // END OF Function that calculates points from each user
 
+    // if (results[results.length - 1].finalScore1 === null) {
+    //   console.log("NULL RESULT");
+    //   // console.log(results.pop());
+    //   // results = results.pop();
+    //   // console.log(jack[0]);
+    // }
+
     return (
       <article>
         <section className="side">
@@ -75,49 +83,67 @@ const CheckResults = () => {
         </section>
         <section className="main">
           <div className="welcome-message">
+            <div className="results-title">Football Sweepstake</div>
+            <div className="separator"></div>
             <div>
-              {matches[1].team1} {results[1].finalScore1} x{" "}
-              {results[1].finalScore2} {matches[1].team2}
+              <p>Enter the final result for round 2:</p>
+              <p className="teams">{matches[results.length - 1].team1}</p>{" "}
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore1 =
+                      results[results.length - 1].finalScore1 - 1;
+                    if (results[results.length - 1].finalScore1 < 0) {
+                      results[results.length - 1].finalScore1 = 0;
+                    }
+                    setReload(!reload);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {results[results.length - 1].finalScore1}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore1 =
+                      results[results.length - 1].finalScore1 + 1;
+                    setReload(!reload);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+              <p>x</p>
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore2 =
+                      results[results.length - 1].finalScore2 - 1;
+                    if (results[results.length - 1].finalScore2 < 0) {
+                      results[results.length - 1].finalScore2 = 0;
+                    }
+                    setReload(!reload);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {results[results.length - 1].finalScore2}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore2 =
+                      results[results.length - 1].finalScore2 + 1;
+                    setReload(!reload);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+              <p className="teams">{matches[results.length - 1].team2}</p>
             </div>
-            <div>
-              {" "}
-              <button
-                onClick={() => {
-                  results[1].finalScore1 = results[1].finalScore1 + 1;
-                  console.log(results[1].finalScore1);
-                  setReload(!reload);
-                }}
-              >
-                + CRUZEIRO
-              </button>
-              <button
-                onClick={() => {
-                  results[1].finalScore1 = results[1].finalScore1 - 1;
-                  console.log(results[1].finalScore1);
-                  setReload(!reload);
-                }}
-              >
-                - CRUZEIRO
-              </button>
-              <button
-                onClick={() => {
-                  results[1].finalScore2 = results[1].finalScore2 + 1;
-                  console.log(results[1].finalScore2);
-                  setReload(!reload);
-                }}
-              >
-                + GREMIO
-              </button>
-              <button
-                onClick={() => {
-                  results[1].finalScore2 = results[1].finalScore2 - 1;
-                  console.log(results[1].finalScore2);
-                  setReload(!reload);
-                }}
-              >
-                - GREMIO
-              </button>
-            </div>
+            <div className="separator"></div>
             <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
             </div>

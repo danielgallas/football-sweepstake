@@ -70,7 +70,7 @@ const Login = () => {
 
       <section className="main">
         <div className="login-container">
-          <p className="title">Gremio Sweepstake</p>
+          <p className="title">Football Sweepstake</p>
           <div className="separator"></div>
           <p className="welcome-message">Please login or register</p>
           <p className={error ? "error-message" : "null"}>{errorMsg}</p>

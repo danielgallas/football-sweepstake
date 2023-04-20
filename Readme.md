@@ -2,6 +2,7 @@
 
 #### TO DO NOW:
 
+- add a new way to edit
 - create a better layout for the page (responsive)
 - find a way to dinamically edit results
 

@@ -1,10 +1,13 @@
 const DisplayWinners = (winners) => {
+  const sortedWinners = winners.winners.sort(function (a, b) {
+    return b.total - a.total;
+  });
   return (
     <>
       <div>
         <b>Points:</b>
       </div>
-      {winners.winners.map((item) => (
+      {sortedWinners.map((item) => (
         <div key={Math.random()}>
           {item.user}: {item.total} points
         </div>
