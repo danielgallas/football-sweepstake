@@ -2,9 +2,6 @@
 
 #### TO DO NOW:
 
-- redo the admin page with React Redux Toolkit
-- introduce leaders into the Admin2 page
-- create a way to add points
 - create a better layout for the page (responsive)
 - find a way to dinamically edit results
 
@@ -30,6 +27,9 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- redo the admin page with React Redux Toolkit
+- introduce leaders into the Admin2 page (change winners for leaders)
+- create a way to add points
 - create an easy way to change axios
 - create a table of winners
 - Update admin page with final result of match - think about the logic

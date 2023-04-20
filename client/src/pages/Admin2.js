@@ -4,14 +4,11 @@ import { useState, useEffect } from "react";
 import matches from "../data/matches";
 import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
-import { useSelector } from "react-redux";
 
 const CheckResults = () => {
-  const { leaders } = useSelector((store) => store.leaders);
-  console.log(leaders);
-
   const [allData, setAllData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [reload, setReload] = useState(false);
   let winners = [];
 
   useEffect(() => {
@@ -33,7 +30,7 @@ const CheckResults = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Is loading...</p>;
+    return <p>Loading...</p>;
   }
   if (!allData) {
     return <p>No data...</p>;
@@ -79,11 +76,54 @@ const CheckResults = () => {
         <section className="main">
           <div className="welcome-message">
             <div>
+              {matches[1].team1} {results[1].finalScore1} x{" "}
+              {results[1].finalScore2} {matches[1].team2}
+            </div>
+            <div>
+              {" "}
+              <button
+                onClick={() => {
+                  results[1].finalScore1 = results[1].finalScore1 + 1;
+                  console.log(results[1].finalScore1);
+                  setReload(!reload);
+                }}
+              >
+                + CRUZEIRO
+              </button>
+              <button
+                onClick={() => {
+                  results[1].finalScore1 = results[1].finalScore1 - 1;
+                  console.log(results[1].finalScore1);
+                  setReload(!reload);
+                }}
+              >
+                - CRUZEIRO
+              </button>
+              <button
+                onClick={() => {
+                  results[1].finalScore2 = results[1].finalScore2 + 1;
+                  console.log(results[1].finalScore2);
+                  setReload(!reload);
+                }}
+              >
+                + GREMIO
+              </button>
+              <button
+                onClick={() => {
+                  results[1].finalScore2 = results[1].finalScore2 - 1;
+                  console.log(results[1].finalScore2);
+                  setReload(!reload);
+                }}
+              >
+                - GREMIO
+              </button>
+            </div>
+            <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
             </div>
             <div>
               {allData.map((item) => {
-                winners.push({ user: item.user, points: 0 });
+                winners.push({ user: item.user, points: 0, total: 0 });
                 return (
                   <div key={item._id}>
                     <div className="separator"></div>
@@ -108,7 +148,13 @@ const CheckResults = () => {
                                       results[matchround._id].finalScore2
                                     ))
                                 }{" "}
-                                POINTS
+                                POINTS{" : "}
+                                {
+                                  (winners[winners.length - 1].total =
+                                    winners[winners.length - 1].total +
+                                    winners[winners.length - 1].points)
+                                }{" "}
+                                TOTAL POINTS
                               </b>
                             ) : (
                               ""

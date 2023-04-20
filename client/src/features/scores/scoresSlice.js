@@ -6,8 +6,8 @@ const initialState = {
   user: null,
   suarez: 15,
   posicao: 1,
-  isLoading: true,
-  finalSubmit: false,
+  // isLoading: true,
+  // finalSubmit: false,
 };
 
 const scoresSlice = createSlice({
