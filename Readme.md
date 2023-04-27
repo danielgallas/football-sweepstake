@@ -2,9 +2,11 @@
 
 #### TO DO NOW:
 
-- add a new way to edit
-- create a better layout for the page (responsive)
-- find a way to dinamically edit results
+- build a webscrapper that loads results into a mongodb collection
+- redesign the layout
+- add "results for this round" below leader board
+- clear code from failed things (getUser, scoresSlice)
+- start working on v2 of the website (improved layout and functionalities)
 
 #### THE MISSION:
 
@@ -28,6 +30,7 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- find a way to dinamically edit results
 - redo the admin page with React Redux Toolkit
 - introduce leaders into the Admin2 page (change winners for leaders)
 - create a way to add points

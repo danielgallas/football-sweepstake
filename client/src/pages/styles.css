@@ -1,4 +1,5 @@
 @import url('https: //fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
 * {
     margin: 0;
@@ -49,16 +50,6 @@ section.side {
 
 }
 
-.results-title {
-    margin-top: 100px;
-    padding: 10px;
-    text-transform: uppercase;
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 1px;
-
-}
 .separator {
     display: inline-block;
     width: 150px;
@@ -188,6 +179,54 @@ button.submit:hover {
     padding: 20px;
 }
 
+/* NEW DESIGN */
+
+.page-title {
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 28px;
+    margin-bottom: 30px;
+}
+
+.results-title {
+    margin-top: 100px;
+    padding: 10px;
+    text-transform: lowercase;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.page-box {
+    padding: 10px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.1em;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #333;
+    border-radius: 40px;
+}
+
+.teams-box {
+    display: flex;
+    vertical-align: middle;
+    justify-content: space-between;
+    font-family: 'Cairo', sans-serif;
+    /* background-color: #15a0e1; */
+    text-transform: lowercase;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.5em;
+}
+
+.hide {
+    display: none;
+}
+
 /* RESPONSIVE  */
 
 @media (max-width: 780px) {
@@ -197,6 +236,6 @@ button.submit:hover {
         align-items: center;
     }
     .side {
-        display:none;
+        display: none;
     }
 }
