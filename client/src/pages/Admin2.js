@@ -86,7 +86,7 @@ const CheckResults = () => {
             <div className="results-title">Football Sweepstake</div>
             <div className="separator"></div>
             <div>
-              <p>Enter the final result for round 2:</p>
+              <p>Enter the final result for this match:</p>
               <p className="teams">{matches[results.length - 1].team1}</p>{" "}
               <span className="score">
                 <button
