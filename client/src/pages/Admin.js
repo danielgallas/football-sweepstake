@@ -5,7 +5,6 @@ import matches from "../data/matches";
 import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import "./styles.css";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
@@ -83,74 +82,77 @@ const CheckResults = () => {
           <img src={player} alt="" />
         </section>
         <section className="main">
-          <div className="page-title">
-            <div className="results-title">
-              round {results[results.length - 1].round}
+          <div className="welcome-message">
+            <div className="results-title">Football Sweepstake</div>
+            <div className="separator"></div>
+            <div>
+              <p>Enter the final result for this match:</p>
+              <p className="teams">{matches[results.length - 1].team1}</p>{" "}
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore1 =
+                      results[results.length - 1].finalScore1 - 1;
+                    if (results[results.length - 1].finalScore1 < 0) {
+                      results[results.length - 1].finalScore1 = 0;
+                    }
+                    setReload(!reload);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {results[results.length - 1].finalScore1}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore1 =
+                      results[results.length - 1].finalScore1 + 1;
+                    setReload(!reload);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+              <p>x</p>
+              <span className="score">
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore2 =
+                      results[results.length - 1].finalScore2 - 1;
+                    if (results[results.length - 1].finalScore2 < 0) {
+                      results[results.length - 1].finalScore2 = 0;
+                    }
+                    setReload(!reload);
+                  }}
+                >
+                  <FaMinusCircle />
+                </button>
+                {results[results.length - 1].finalScore2}
+                <button
+                  className="score-number"
+                  onClick={() => {
+                    results[results.length - 1].finalScore2 =
+                      results[results.length - 1].finalScore2 + 1;
+                    setReload(!reload);
+                  }}
+                >
+                  <FaPlusCircle />
+                </button>
+              </span>
+              <p className="teams">{matches[results.length - 1].team2}</p>
             </div>
-            <div className="page-box">
-              {/* <p>Enter the final result for round 2:</p> */}
-              <p className="teams-box">
-                {matches[results.length - 1].team1}
-                <span className="score-box">
-                  <button
-                    onClick={() => {
-                      results[results.length - 1].finalScore1 =
-                        results[results.length - 1].finalScore1 - 1;
-                      if (results[results.length - 1].finalScore1 < 0) {
-                        results[results.length - 1].finalScore1 = 0;
-                      }
-                      setReload(!reload);
-                    }}
-                  >
-                    <FaMinusCircle />
-                  </button>
-                  {results[results.length - 1].finalScore1}
-                  <button
-                    onClick={() => {
-                      results[results.length - 1].finalScore1 =
-                        results[results.length - 1].finalScore1 + 1;
-                      setReload(!reload);
-                    }}
-                  >
-                    <FaPlusCircle />
-                  </button>
-                </span>
-                x{" "}
-                <span>
-                  <button
-                    onClick={() => {
-                      results[results.length - 1].finalScore2 =
-                        results[results.length - 1].finalScore2 - 1;
-                      if (results[results.length - 1].finalScore2 < 0) {
-                        results[results.length - 1].finalScore2 = 0;
-                      }
-                      setReload(!reload);
-                    }}
-                  >
-                    <FaMinusCircle />
-                  </button>
-                  {results[results.length - 1].finalScore2}
-                  <button
-                    onClick={() => {
-                      results[results.length - 1].finalScore2 =
-                        results[results.length - 1].finalScore2 + 1;
-                      setReload(!reload);
-                    }}
-                  >
-                    <FaPlusCircle />
-                  </button>
-                </span>
-                {matches[results.length - 1].team2}
-              </p>
-            </div>
-            <div className="page-box">
+            <div className="separator"></div>
+            <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
             </div>
-            <div className="page-box">
+            <div>
               {allData.map((item) => {
                 winners.push({ user: item.user, points: 0, total: 0 });
                 return (
                   <div key={item._id}>
+                    <div className="separator"></div>
                     <div>
                       <b>These are the predictions by {item.user}</b>
                     </div>
@@ -172,14 +174,13 @@ const CheckResults = () => {
                                       results[matchround._id].finalScore2
                                     ))
                                 }{" "}
-                                POINTS
-                                <span className="hide">
-                                  {
-                                    (winners[winners.length - 1].total =
-                                      winners[winners.length - 1].total +
-                                      winners[winners.length - 1].points)
-                                  }
-                                </span>{" "}
+                                POINTS{" : "}
+                                {
+                                  (winners[winners.length - 1].total =
+                                    winners[winners.length - 1].total +
+                                    winners[winners.length - 1].points)
+                                }{" "}
+                                TOTAL POINTS
                               </b>
                             ) : (
                               ""

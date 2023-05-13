@@ -4,12 +4,10 @@ import { useState, useEffect } from "react";
 import matches from "../data/matches";
 import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [reload, setReload] = useState(false);
   let winners = [];
 
   useEffect(() => {
@@ -84,65 +82,6 @@ const CheckResults = () => {
         <section className="main">
           <div className="welcome-message">
             <div className="results-title">Football Sweepstake</div>
-            <div className="separator"></div>
-            <div>
-              <p>Enter the final result for this match:</p>
-              <p className="teams">{matches[results.length - 1].team1}</p>{" "}
-              <span className="score">
-                <button
-                  className="score-number"
-                  onClick={() => {
-                    results[results.length - 1].finalScore1 =
-                      results[results.length - 1].finalScore1 - 1;
-                    if (results[results.length - 1].finalScore1 < 0) {
-                      results[results.length - 1].finalScore1 = 0;
-                    }
-                    setReload(!reload);
-                  }}
-                >
-                  <FaMinusCircle />
-                </button>
-                {results[results.length - 1].finalScore1}
-                <button
-                  className="score-number"
-                  onClick={() => {
-                    results[results.length - 1].finalScore1 =
-                      results[results.length - 1].finalScore1 + 1;
-                    setReload(!reload);
-                  }}
-                >
-                  <FaPlusCircle />
-                </button>
-              </span>
-              <p>x</p>
-              <span className="score">
-                <button
-                  className="score-number"
-                  onClick={() => {
-                    results[results.length - 1].finalScore2 =
-                      results[results.length - 1].finalScore2 - 1;
-                    if (results[results.length - 1].finalScore2 < 0) {
-                      results[results.length - 1].finalScore2 = 0;
-                    }
-                    setReload(!reload);
-                  }}
-                >
-                  <FaMinusCircle />
-                </button>
-                {results[results.length - 1].finalScore2}
-                <button
-                  className="score-number"
-                  onClick={() => {
-                    results[results.length - 1].finalScore2 =
-                      results[results.length - 1].finalScore2 + 1;
-                    setReload(!reload);
-                  }}
-                >
-                  <FaPlusCircle />
-                </button>
-              </span>
-              <p className="teams">{matches[results.length - 1].team2}</p>
-            </div>
             <div className="separator"></div>
             <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
