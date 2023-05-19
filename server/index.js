@@ -5,11 +5,12 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 const authrouter = require("./routes/auth");
 const scores = require("./routes/scores");
+const postResults = require("./routes/postResults");
 
 const port = process.env.PORT || 5000;
 
-// const url = "http://localhost:3000";
-const url = "https://football-sweepstake.netlify.app";
+const url = "http://localhost:3000";
+// const url = "https://football-sweepstake.netlify.app";
 
 // middleware
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use(cors({ origin: url }));
 // routes
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/scores", scores);
+app.use("/api/v1/results", postResults);
 
 // starting the server and the database
 

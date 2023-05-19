@@ -35,11 +35,17 @@ const CheckResults = () => {
     return <p>No data...</p>;
   } else {
     // Function that calculates points from each user
-    const calculate = (prediction1, prediction2, final1, final2) => {
+    const calculate = (prediction1, prediction2, final1, final2, round) => {
       if (final1 === final2) {
         if (prediction1 === prediction2) {
           if (prediction1 === final1 && prediction2 === final2) {
+            if (round === 7) {
+              return 600;
+            }
             return 300;
+          }
+          if (round === 7) {
+            return 200;
           }
           return 100;
         }
@@ -48,7 +54,13 @@ const CheckResults = () => {
       if (final1 > final2) {
         if (prediction1 > prediction2) {
           if (prediction1 === final1 && prediction2 === final2) {
+            if (round === 7) {
+              return 600;
+            }
             return 300;
+          }
+          if (round === 7) {
+            return 200;
           }
           return 100;
         }
@@ -110,16 +122,20 @@ const CheckResults = () => {
                                       matchround.score1,
                                       matchround.score2,
                                       results[matchround._id].finalScore1,
-                                      results[matchround._id].finalScore2
+                                      results[matchround._id].finalScore2,
+                                      results[matchround._id].round
                                     ))
                                 }{" "}
-                                POINTS{" : "}
-                                {
-                                  (winners[winners.length - 1].total =
-                                    winners[winners.length - 1].total +
-                                    winners[winners.length - 1].points)
-                                }{" "}
-                                TOTAL POINTS
+                                POINTS
+                                <span className="hide">
+                                  {" : "}
+                                  {
+                                    (winners[winners.length - 1].total =
+                                      winners[winners.length - 1].total +
+                                      winners[winners.length - 1].points)
+                                  }{" "}
+                                  TOTAL POINTS
+                                </span>
                               </b>
                             ) : (
                               ""

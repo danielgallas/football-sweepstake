@@ -1,4 +1,4 @@
-const results = [
+const theResults = [
   {
     _id: 0,
     round: 1,
@@ -37,4 +37,4 @@ const results = [
   },
 ];
 
-export default results;
+module.exports = { theResults };
