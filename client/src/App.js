@@ -10,11 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<CheckResults2 />} />
+        <Route path="/" element={<CheckResults />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/thanks" element={<Thanks />} />
-        <Route path="/results" element={<CheckResults />} />
+        <Route path="/results" element={<CheckResults2 />} />
       </Routes>
     </BrowserRouter>
   );

@@ -41,6 +41,12 @@ const results = [
     finalScore1: 3,
     finalScore2: 1,
   },
+  {
+    _id: 7,
+    round: 8,
+    finalScore1: 1,
+    finalScore2: 2,
+  },
 ];
 
 export default results;

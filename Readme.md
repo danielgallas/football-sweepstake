@@ -2,10 +2,21 @@
 
 #### TO DO NOW:
 
+- DONE: all changes will be done in Admin.js (Admin2.js is the one on air)
+- DONE: change axios and server/index.js to localhost
+- DONE: pull data from results.js in MongoDB:
+  - DONE: create a server GET method to pull results.js
+  - DONE: test this with Postman
+- DONE: in Admin.js pull results data from MongoDB and not results.js
+- DONE: test results.js by adding/removing data from results in MongoDB
+- DONE: change checkresults in App.js for Admin instead or Admin2.
+- DONE: change axios and server/index.js back to vertel + netlify
+
+- review app and get rid of things that don't need to exist (server urls)
+- separate components in admin page (find a new name for it)
+
 - build a webscrapper that loads results into a mongodb collection
 - redesign the layout
-- add "results for this round" below leader board
-- clear code from failed things (getUser, scoresSlice)
 - start working on v2 of the website (improved layout and functionalities)
 
 #### THE MISSION:

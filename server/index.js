@@ -5,7 +5,7 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 const authrouter = require("./routes/auth");
 const scores = require("./routes/scores");
-const postResults = require("./routes/postResults");
+const results = require("./routes/results");
 
 const port = process.env.PORT || 5000;
 
@@ -33,7 +33,7 @@ app.use(cors({ origin: url }));
 // routes
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/scores", scores);
-app.use("/api/v1/results", postResults);
+app.use("/api/v1/results", results);
 
 // starting the server and the database
 
