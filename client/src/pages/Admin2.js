@@ -2,11 +2,12 @@ import player from "../pages/images/player.svg";
 import instance from "../components/axios";
 import { useState, useEffect } from "react";
 import matches from "../data/matches";
-import results from "../data/results";
 import DisplayWinners from "../components/DisplayWinners";
+import NextMatch from "../components/NextMatch";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
+  const [resultsData, setResultsData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   let winners = [];
 
@@ -23,6 +24,16 @@ const CheckResults = () => {
       } catch (error) {
         console.log(error);
       }
+      try {
+        const response = await instance.get("/api/v1/results");
+        if (response.data) {
+          setResultsData(response.data.results);
+        } else {
+          setResultsData(null);
+        }
+      } catch (error) {
+        console.log(error);
+      }
       setIsLoading(false);
     };
     getAllData();
@@ -31,7 +42,7 @@ const CheckResults = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-  if (!allData) {
+  if (!allData && !resultsData) {
     return <p>No data...</p>;
   } else {
     // Function that calculates points from each user
@@ -93,7 +104,15 @@ const CheckResults = () => {
         </section>
         <section className="main">
           <div className="welcome-message">
-            <div className="results-title">Football Sweepstake</div>
+            <div className="results-title">Football Sweepstake RESULTS</div>
+            <div className="separator"></div>
+            <div>
+              <NextMatch
+                results={resultsData}
+                scores={allData}
+                matches={matches}
+              />
+            </div>
             <div className="separator"></div>
             <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}
@@ -114,16 +133,16 @@ const CheckResults = () => {
                           {matches[matchround._id].team1} {matchround.score1} x{" "}
                           {matchround.score2} {matches[matchround._id].team2}{" "}
                           <span>
-                            {results[matchround._id] ? (
+                            {resultsData[matchround._id] ? (
                               <b>
                                 {
                                   (winners[winners.length - 1].points =
                                     calculate(
                                       matchround.score1,
                                       matchround.score2,
-                                      results[matchround._id].finalScore1,
-                                      results[matchround._id].finalScore2,
-                                      results[matchround._id].round
+                                      resultsData[matchround._id].finalScore1,
+                                      resultsData[matchround._id].finalScore2,
+                                      resultsData[matchround._id].round
                                     ))
                                 }{" "}
                                 POINTS

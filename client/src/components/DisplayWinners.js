@@ -5,7 +5,7 @@ const DisplayWinners = (winners) => {
   return (
     <>
       <div>
-        <b>Points:</b>
+        <b>Leaders:</b>
       </div>
       {sortedWinners.map((item) => (
         <div key={Math.random()}>

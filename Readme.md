@@ -2,15 +2,11 @@
 
 #### TO DO NOW:
 
-- DONE: all changes will be done in Admin.js (Admin2.js is the one on air)
-- DONE: change axios and server/index.js to localhost
-- DONE: pull data from results.js in MongoDB:
-  - DONE: create a server GET method to pull results.js
-  - DONE: test this with Postman
-- DONE: in Admin.js pull results data from MongoDB and not results.js
-- DONE: test results.js by adding/removing data from results in MongoDB
-- DONE: change checkresults in App.js for Admin instead or Admin2.
-- DONE: change axios and server/index.js back to vertel + netlify
+- implement NEXT MATCH component (see all predictions just for the next match):
+
+  - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
+  - create a nextMatch.js in components
+  - code nextMatch based on data in Admin2.js
 
 - review app and get rid of things that don't need to exist (server urls)
 - separate components in admin page (find a new name for it)
