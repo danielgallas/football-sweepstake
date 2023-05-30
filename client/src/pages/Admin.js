@@ -3,6 +3,8 @@ import instance from "../components/axios";
 import { useState, useEffect } from "react";
 import matches from "../data/matches";
 import DisplayWinners from "../components/DisplayWinners";
+import NextMatch from "../components/NextMatch";
+import Loading from "../components/Loading";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
@@ -39,7 +41,7 @@ const CheckResults = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
   if (!allData && !resultsData) {
     return <p>No data...</p>;
@@ -103,7 +105,15 @@ const CheckResults = () => {
         </section>
         <section className="main">
           <div className="welcome-message">
-            <div className="results-title">Football Sweepstake RESULTS</div>
+            <div className="results-title">Football Sweepstake Dashboard</div>
+            <div className="separator"></div>
+            <div>
+              <NextMatch
+                results={resultsData}
+                scores={allData}
+                matches={matches}
+              />
+            </div>
             <div className="separator"></div>
             <div>
               {winners ? <DisplayWinners winners={winners} /> : "nothing"}

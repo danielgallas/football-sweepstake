@@ -5,6 +5,7 @@ import Thanks from "./pages/Thanks";
 import Login from "./pages/Login";
 import CheckResults from "./pages/Admin";
 import CheckResults2 from "./pages/Admin2";
+import Loading from "./components/Loading";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/thanks" element={<Thanks />} />
         <Route path="/results" element={<CheckResults />} />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </BrowserRouter>
   );

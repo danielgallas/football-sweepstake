@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import matches from "../data/matches";
 import DisplayWinners from "../components/DisplayWinners";
 import NextMatch from "../components/NextMatch";
+import Loading from "../components/Loading";
 
 const CheckResults = () => {
   const [allData, setAllData] = useState(null);
@@ -40,7 +41,7 @@ const CheckResults = () => {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
   if (!allData && !resultsData) {
     return <p>No data...</p>;

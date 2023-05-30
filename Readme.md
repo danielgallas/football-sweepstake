@@ -5,8 +5,20 @@
 - implement NEXT MATCH component (see all predictions just for the next match):
 
   - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
-  - create a nextMatch.js in components
-  - code nextMatch based on data in Admin2.js
+  - DONE: create a nextMatch.js in components
+  - DONE: code nextMatch based on data in Admin2.js
+
+- think about all the things I would like to have in the app; start thinking in terms of UX
+
+- DONE: clone Admin2.js into Admin.js and work only on Admin.js for testing
+- better loading page
+- last match component
+- first page: choose user
+- include Gremio position in points system
+- categories: player page (chart with leaders, which team is in which position)
+- Suarez statistics page: with forecast of how many goals he will score
+- see all predictions (chart with leaders)
+- MENU: User Stats-Suarez-All Stats
 
 - review app and get rid of things that don't need to exist (server urls)
 - separate components in admin page (find a new name for it)
