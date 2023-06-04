@@ -1,6 +1,27 @@
-.App {
-  text-align: center;
+:root {
+  /* CSS HEX */
+    --picton-blue: #47abdcff;
+    --night: #121218ff;
+    --raisin-black: #27272dff;
+    --lavender-web: #dadde8ff;
+    --french-gray: #c7c7cdff;
+  
+    /* CSS HSL */
+    --picton-blue: hsla(200, 68%, 57%, 1);
+    --night: hsla(240, 14%, 8%, 1);
+    --raisin-black: hsla(240, 7%, 16%, 1);
+    --lavender-web: hsla(227, 23%, 88%, 1);
+    --french-gray: hsla(240, 6%, 79%, 1);
 }
+
+.App {
+    background-color: var(--lavender-web);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 .App-logo {
   height: 40vmin;
@@ -34,5 +55,36 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--lavender-web)
+}
+
+.AppGlass {
+  display: grid;
+  height: 97%;
+  width: 97%;
+  border-radius: 2rem;
+  background-color: var(--french-gray);
+  overflow: hidden;
+  grid-template-columns: 11rem auto 20rem;
+}
+
+@media screen and (max-width: 1200px) {
+.AppGlass {
+  grid-template-columns: 10%  50% auto;
+  overflow-y: scroll;
+}
+}
+
+@media screen and (max-width: 768px) {
+  .AppGlass {
+    grid-template-columns: 1fr;
+  }
+  .AppGlass::-webkit-scrollbar{
+    display: none;
   }
 }

@@ -8,7 +8,6 @@ const NextMatch = (results) => {
       <div>
         <b>Predictions for the next match</b>
       </div>
-      <div>{console.log(lastRound)}</div>
       <div>
         {results.scores.map((item) => {
           return (
@@ -21,8 +20,6 @@ const NextMatch = (results) => {
           );
         })}
       </div>
-      <div>{console.log(results)}</div>
-      {/* <div>{console.log(results.results[0].round)}</div> */}
     </>
   );
 };

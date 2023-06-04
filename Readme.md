@@ -1,17 +1,24 @@
 #### PROJECT: Football Sweepstake
 
+#### COOLORS AND LOGO MAKER:
+
+https://coolors.co/47abdc-121218-27272d-dadde8-c7c7cd
+https://myfreelogomaker.com/brandkit/129244095/logo-files
+
 #### TO DO NOW:
 
-- implement NEXT MATCH component (see all predictions just for the next match):
-
+- DONE: implement NEXT MATCH component (see all predictions just for the next match):
   - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
   - DONE: create a nextMatch.js in components
   - DONE: code nextMatch based on data in Admin2.js
-
-- think about all the things I would like to have in the app; start thinking in terms of UX
-
+- DONE: think about all the things I would like to have in the app; start thinking in terms of UX
 - DONE: clone Admin2.js into Admin.js and work only on Admin.js for testing
-- better loading page
+- DONE: better loading page
+
+- start coding the new design based on this: https://www.youtube.com/watch?v=K7vHoUwClaM
+- I stopped at 1:34:26
+
+- ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
 - last match component
 - first page: choose user
 - include Gremio position in points system
