@@ -52,6 +52,7 @@ const CheckResults = () => {
         ];
         return leaderboard;
       });
+      console.log(leaderboard);
       return leaderboard;
     });
   };
