@@ -3,10 +3,10 @@
     flex: 1;
     height: 7rem !important;
     border-radius: 0.7rem;
-    color: white;
     padding: 0.5rem;
     position: relative;
     cursor: pointer;
+    color:white;
 }
 
 .CompactCard:hover {
@@ -44,6 +44,7 @@
 .radialBar>span {
     font-size: 17px;
     font-weight: bold;
+    color: white;
 }
 
 /* sideDetail*/
@@ -53,14 +54,17 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+    color: white;
 }
 
 .detail>span:nth-child(2) {
     font-size: 22px;
     font-weight: bold;
+    color: white;
 }
 
 .detail>span:nth-child(3) {
+    color: white;
     font-size: 12px;
 }
 

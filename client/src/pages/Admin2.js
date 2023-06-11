@@ -1,8 +1,8 @@
-import player from "../pages/images/player.svg";
+// import player from "../pages/images/player.svg";
 import instance from "../components/axios";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 import MainDash from "../components/maindash/MainDash.js";
 import RightSide from "../components/RightSide/RightSide";
@@ -11,12 +11,97 @@ import RightSide from "../components/RightSide/RightSide";
 // import DisplayWinners from "../components/DisplayWinners";
 // import NextMatch from "../components/NextMatch";
 
+// STUFF TO DO
+// DATA TO BE IMPORTED:
+// into the winners array push 3 things: a new array pointsRound1...pointsRound19, suarez, gremio final standing
+
 const CheckResults = () => {
-  const [allData, setAllData] = useState(null);
-  const [resultsData, setResultsData] = useState(null);
+  const [userPredictions, setUserPredictions] = useState(null);
+  const [finalResults, setFinalResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  let winners = [];
-  let { username } = useParams();
+  let leaderboard = [];
+  // let { username } = useParams();
+
+  // Function that creates Leaderboard
+  const createLeaderboard = () => {
+    userPredictions.map((item) => {
+      leaderboard.push({
+        user: item.user,
+        total: 0,
+        roundpoints: [],
+        suarez: item.suarez,
+        gremioPosition: item.posicao,
+      });
+      finalResults.map((matchround) => {
+        // calculates points
+        let pointsAwarded = calculate(
+          item.scores[matchround.round - 1].score1,
+          item.scores[matchround.round - 1].score2,
+          matchround.finalScore1,
+          matchround.finalScore2,
+          matchround.round
+        );
+
+        // adds points to total point of each user
+        leaderboard[leaderboard.length - 1].total =
+          leaderboard[leaderboard.length - 1].total + pointsAwarded;
+
+        // adds point in each round to an array in leaderboard
+        leaderboard[leaderboard.length - 1].roundpoints[matchround.round] = [
+          pointsAwarded,
+        ];
+        return leaderboard;
+      });
+      return leaderboard;
+    });
+  };
+  // END OF Function that creates Leaderboard
+
+  //  Function that calculates points from each user
+
+  const calculate = (prediction1, prediction2, final1, final2, round) => {
+    if (final1 === final2) {
+      if (prediction1 === prediction2) {
+        if (prediction1 === final1 && prediction2 === final2) {
+          if (round === 7) {
+            return 600;
+          }
+          return 300;
+        }
+        if (round === 7) {
+          return 200;
+        }
+        return 100;
+      }
+      return 0;
+    }
+    if (final1 > final2) {
+      if (prediction1 > prediction2) {
+        if (prediction1 === final1 && prediction2 === final2) {
+          if (round === 7) {
+            return 600;
+          }
+          return 300;
+        }
+        if (round === 7) {
+          return 200;
+        }
+        return 100;
+      }
+      return 0;
+    }
+    if (final1 < final2) {
+      if (prediction1 < prediction2) {
+        if (prediction1 === final1 && prediction2 === final2) {
+          return 300;
+        }
+        return 100;
+      }
+      return 0;
+    }
+    return null;
+  };
+  // END OF Function that calculates points from each user
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,9 +109,9 @@ const CheckResults = () => {
       try {
         const response = await instance.get("/api/v1/scores");
         if (response.data) {
-          setAllData(response.data.scores);
+          setUserPredictions(response.data.scores);
         } else {
-          setAllData(null);
+          setUserPredictions(null);
         }
       } catch (error) {
         console.log(error);
@@ -34,9 +119,9 @@ const CheckResults = () => {
       try {
         const response = await instance.get("/api/v1/results");
         if (response.data) {
-          setResultsData(response.data.results);
+          setFinalResults(response.data.results);
         } else {
-          setResultsData(null);
+          setFinalResults(null);
         }
       } catch (error) {
         console.log(error);
@@ -49,62 +134,10 @@ const CheckResults = () => {
   if (isLoading) {
     return <Loading />;
   }
-  if (!allData && !resultsData) {
+  if (!userPredictions && !finalResults) {
     return <p>No data...</p>;
   } else {
-    // Function that calculates points from each user
-    const calculate = (prediction1, prediction2, final1, final2, round) => {
-      if (final1 === final2) {
-        if (prediction1 === prediction2) {
-          if (prediction1 === final1 && prediction2 === final2) {
-            if (round === 7) {
-              return 600;
-            }
-            return 300;
-          }
-          if (round === 7) {
-            return 200;
-          }
-          return 100;
-        }
-        return 0;
-      }
-      if (final1 > final2) {
-        if (prediction1 > prediction2) {
-          if (prediction1 === final1 && prediction2 === final2) {
-            if (round === 7) {
-              return 600;
-            }
-            return 300;
-          }
-          if (round === 7) {
-            return 200;
-          }
-          return 100;
-        }
-        return 0;
-      }
-      if (final1 < final2) {
-        if (prediction1 < prediction2) {
-          if (prediction1 === final1 && prediction2 === final2) {
-            return 300;
-          }
-          return 100;
-        }
-        return 0;
-      }
-      return null;
-    };
-    // END OF Function that calculates points from each user
-
-    // if (results[results.length - 1].finalScore1 === null) {
-    //   console.log("NULL RESULT");
-    //   // console.log(results.pop());
-    //   // results = results.pop();
-    //   // console.log(jack[0]);
-    // }
-
-    console.log(player, winners, username, calculate(0, 0, 0, 0, 0, 0));
+    createLeaderboard();
 
     return (
       <div className="App">
@@ -114,82 +147,6 @@ const CheckResults = () => {
           <RightSide />
         </div>
       </div>
-
-      // OLD CODE
-      // <article>
-      //   <section className="side">
-      //     <img src={player} alt="" />
-      //   </section>
-      //   <section className="main">
-      //     <div className="welcome-message">
-      //       <div className="results-title">Football Sweepstake: {username}</div>
-      //       <div className="separator"></div>
-      //       <div>
-      //         <NextMatch
-      //           results={resultsData}
-      //           scores={allData}
-      //           matches={matches}
-      //         />
-      //       </div>
-      //       <div className="separator"></div>
-      //       <div>
-      //         {winners ? <DisplayWinners winners={winners} /> : "nothing"}
-      //       </div>
-      //       <div>
-      //         {allData.map((item) => {
-      //           winners.push({ user: item.user, points: 0, total: 0 });
-      //           return (
-      //             <div key={item._id}>
-      //               <div className="separator"></div>
-      //               <div>
-      //                 <b>These are the predictions by {item.user}</b>
-      //               </div>
-      //               <div>
-      //                 {item.scores.map((matchround) => (
-      //                   <div key={matchround._id}>
-      //                     Round {matches[matchround._id].round}:{" "}
-      //                     {matches[matchround._id].team1} {matchround.score1} x{" "}
-      //                     {matchround.score2} {matches[matchround._id].team2}{" "}
-      //                     <span>
-      //                       {resultsData[matchround._id] ? (
-      //                         <b>
-      //                           {
-      //                             (winners[winners.length - 1].points =
-      //                               calculate(
-      //                                 matchround.score1,
-      //                                 matchround.score2,
-      //                                 resultsData[matchround._id].finalScore1,
-      //                                 resultsData[matchround._id].finalScore2,
-      //                                 resultsData[matchround._id].round
-      //                               ))
-      //                           }{" "}
-      //                           POINTS
-      //                           <span className="hide">
-      //                             {" : "}
-      //                             {
-      //                               (winners[winners.length - 1].total =
-      //                                 winners[winners.length - 1].total +
-      //                                 winners[winners.length - 1].points)
-      //                             }{" "}
-      //                             TOTAL POINTS
-      //                           </span>
-      //                         </b>
-      //                       ) : (
-      //                         ""
-      //                       )}
-      //                     </span>
-      //                   </div>
-      //                 ))}
-      //               </div>
-      //               <div>Suarez will score {item.suarez} goals. </div>
-      //               <div>Gremio will end the league in: {item.posicao}</div>
-      //             </div>
-      //           );
-      //         })}
-      //       </div>
-      //     </div>
-      //   </section>
-      // </article>
     );
   }
 };

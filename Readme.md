@@ -5,34 +5,26 @@
 https://coolors.co/47abdc-121218-27272d-dadde8-c7c7cd
 https://myfreelogomaker.com/brandkit/129244095/logo-files
 
+#### MENU ITEMS:
+
+- Dashboard: leaderboard (your position/leaderboard) + last match result + predictions and who scored how much;
+- Next match: simulation if you win what will the leaderboard be like
+- Predictions (by match) and (by user)
+- Your stats: fun stuff - based on your predictions, where would Gremio have been in 2022. how many goals Suarez needs to score per match
+
 #### TO DO NOW:
 
-- DONE: implement NEXT MATCH component (see all predictions just for the next match):
-  - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
-  - DONE: create a nextMatch.js in components
-  - DONE: code nextMatch based on data in Admin2.js
-- DONE: think about all the things I would like to have in the app; start thinking in terms of UX
-- DONE: clone Admin2.js into Admin.js and work only on Admin.js for testing
-- DONE: better loading page
-
-- start coding the new design based on this: https://www.youtube.com/watch?v=K7vHoUwClaM
-- I stopped at 1:34:26
+- Dashboard:
+  - Start configuring leaderboard + last match result + next match predictions
+  - Rightside: Updates on the app + Twitter widget
+- Redo the setuser page with new design - correct routes
 
 - ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
-- last match component
-- first page: choose user
-- include Gremio position in points system
-- categories: player page (chart with leaders, which team is in which position)
-- Suarez statistics page: with forecast of how many goals he will score
-- see all predictions (chart with leaders)
-- MENU: User Stats-Suarez-All Stats
 
 - review app and get rid of things that don't need to exist (server urls)
 - separate components in admin page (find a new name for it)
 
 - build a webscrapper that loads results into a mongodb collection
-- redesign the layout
-- start working on v2 of the website (improved layout and functionalities)
 
 #### THE MISSION:
 
@@ -42,8 +34,9 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 There will be certain stages of implementation:
 
 - DONE - Responsive login page (frontend, backend and database)
-- The guessing page - with autosave and a submit button, for all final users to submit.
-- Navigation for all users to see all guesses - per match, per user and a results table (which shows who is winning). Results will be pushed by the admin
+- DONE - The guessing page - with autosave and a submit button, for all final users to submit.
+- DONE - Navigation for all users to see all guesses - per match, per user and a results table (which shows who is winning). Results will be pushed by the admin
+- Redesign of the website (responsive)
 - Full automation, with results being updated automatically (I will have to either find an API or try to build some sort of scrapper)
 
 #### LATER:
@@ -56,6 +49,17 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- DONE: Sort out the logic for winners, results, etc. create calculating functions - should I store it all in React Redux?
+- DONE: implement NEXT MATCH component (see all predictions just for the next match):
+  - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
+  - DONE: create a nextMatch.js in components
+  - DONE: code nextMatch based on data in Admin2.js
+- DONE: think about all the things I would like to have in the app; start thinking in terms of UX
+- DONE: clone Admin2.js into Admin.js and work only on Admin.js for testing
+- DONE: better loading page
+- DONE start coding the new design based on this: https://www.youtube.com/watch?v=K7vHoUwClaM
+- last match component
+- first page: choose user
 - find a way to dinamically edit results
 - redo the admin page with React Redux Toolkit
 - introduce leaders into the Admin2 page (change winners for leaders)

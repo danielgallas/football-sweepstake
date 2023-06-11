@@ -32,19 +32,19 @@
 }
 
 .spinner-sector-blue{
-    border-top-color: blue;
+    border-top-color: var(--picton-blue);
     --duration: 1.5s;
     --timing: ease-in-out;
 }
 
 .spinner-sector-black {
-    border-left-color: black;
+    border-left-color: var(--night);
     --duration: 2s;
     --timing: ease-in;
 }
 
 .spinner-sector-white {
-    border-right-color: lightgray;
+    border-right-color: var(--french-gray);
     --duration: 2.5s;
     --timing: ease-out;
 }
