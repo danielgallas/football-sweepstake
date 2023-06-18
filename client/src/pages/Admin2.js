@@ -1,11 +1,13 @@
 // import player from "../pages/images/player.svg";
 import instance from "../components/axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import Loading from "../components/Loading";
 // import { useParams } from "react-router-dom";
 import Sidebar from "../components/sidebar/Sidebar";
 import MainDash from "../components/maindash/MainDash.js";
 import RightSide from "../components/RightSide/RightSide";
+
+export const LeaderContext = createContext();
 
 // import matches from "../data/matches";
 // import DisplayWinners from "../components/DisplayWinners";
@@ -52,14 +54,12 @@ const CheckResults = () => {
         ];
         return leaderboard;
       });
-      console.log(leaderboard);
       return leaderboard;
     });
   };
   // END OF Function that creates Leaderboard
 
   //  Function that calculates points from each user
-
   const calculate = (prediction1, prediction2, final1, final2, round) => {
     if (final1 === final2) {
       if (prediction1 === prediction2) {
@@ -139,13 +139,14 @@ const CheckResults = () => {
     return <p>No data...</p>;
   } else {
     createLeaderboard();
-
     return (
       <div className="App">
         <div className="AppGlass">
-          <Sidebar />
-          <MainDash />
-          <RightSide />
+          <LeaderContext.Provider value={leaderboard}>
+            <Sidebar />
+            <MainDash />
+            <RightSide />
+          </LeaderContext.Provider>
         </div>
       </div>
     );

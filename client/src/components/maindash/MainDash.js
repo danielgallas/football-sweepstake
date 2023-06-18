@@ -3,7 +3,7 @@ import "./MainDash.css";
 import Cards from "../cards/Cards";
 import Table from "../Table/Table";
 
-const MainDash = () => {
+const MainDash = (leaderboard) => {
   return (
     <div className="MainDash">
       <h1>Dashboard</h1>

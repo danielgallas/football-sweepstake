@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import "./Card.css";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import React, { useState, useContext } from "react";
+import "./CardLeader.css";
 import { motion, LayoutGroup } from "framer-motion";
 import { UilTimes } from "@iconscout/react-unicons";
 import Chart from "react-apexcharts";
+import ReactApexChart from "react-apexcharts";
+import { LeaderContext } from "../../pages/Admin2";
 
 // parent Card
 
-const Card = (props) => {
+const CardLeader = (props) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <LayoutGroup>
@@ -23,6 +23,50 @@ const Card = (props) => {
 
 // Compact Card
 function CompactCard({ param, setExpanded }) {
+  const leaderboard = useContext(LeaderContext);
+  let usersPoints = leaderboard.map((item) => {
+    return { user: item.user, points: item.total };
+  });
+
+  let sortedLeaderboard = usersPoints.sort(function (a, b) {
+    return b.points - a.points;
+  });
+
+  console.log(sortedLeaderboard);
+
+  let users = sortedLeaderboard.map((item) => {
+    return item.user;
+  });
+  let points = sortedLeaderboard.map((item) => {
+    return item.points;
+  });
+
+  let options = {
+    chart: {
+      foreColor: "#ffffff",
+      type: "bar",
+      height: 800,
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 4,
+        horizontal: true,
+      },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    xaxis: {
+      categories: users,
+    },
+  };
+
+  let series = [
+    {
+      data: points,
+    },
+  ];
+
   return (
     <motion.div
       className="CompactCard"
@@ -33,15 +77,9 @@ function CompactCard({ param, setExpanded }) {
       layoutId="expandableCard"
       onClick={setExpanded}
     >
-      <div className="headerCard">{param.title}, your rank is:</div>
-      <div className="radialBar">
-        <CircularProgressbar
-          minValue={1}
-          maxValue={param.maxBarValue}
-          value={param.barValue}
-          text={`${param.barValue}/${param.maxBarValue}`}
-        />
-        {/* <span>{param.title}</span> */}
+      <div className="headerCard">This is the ranking:</div>
+      <div className="radialBarTable">
+        <ReactApexChart options={options} series={series} type="bar" />
       </div>
     </motion.div>
   );
@@ -120,4 +158,4 @@ function ExpandedCard({ param, setExpanded }) {
   );
 }
 
-export default Card;
+export default CardLeader;

@@ -15,9 +15,14 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 #### TO DO NOW:
 
 - Dashboard:
-  - Start configuring leaderboard + last match result + next match predictions
+
+  - Table last match result
+  - Table next match predictions
   - Rightside: Updates on the app + Twitter widget
-- Redo the setuser page with new design - correct routes
+  - Fix problems (sizes, fonts, etc.)
+  - Fix big expanded graphs
+  - Redo the setuser page with new design - correct routes
+  - Make the setUser page determine what will be shown in dashboard (using params)
 
 - ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
 
