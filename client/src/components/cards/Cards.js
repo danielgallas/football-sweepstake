@@ -7,7 +7,7 @@ import { LeaderContext } from "../../pages/Admin2";
 
 const Cards = () => {
   const leaderboard = useContext(LeaderContext);
-  const daniel = leaderboard[2].user;
+  const daniel = leaderboard.leaderboard[2].user;
 
   return (
     <div className="Cards">

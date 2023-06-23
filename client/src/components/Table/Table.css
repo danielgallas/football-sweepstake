@@ -1,3 +1,17 @@
+
+.TableContainer{
+    margin-top: 20px;
+    display: grid;
+    width: 100%;
+    gap: 10px;
+    border-radius: 0.7rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Table{
+    width: 100%;
+}
+
 .MuiTableRow-root>*{
     padding: 10px;
 }

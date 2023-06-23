@@ -23,7 +23,9 @@ const CardLeader = (props) => {
 
 // Compact Card
 function CompactCard({ param, setExpanded }) {
-  const leaderboard = useContext(LeaderContext);
+  const allData = useContext(LeaderContext);
+  const { leaderboard } = allData;
+
   let usersPoints = leaderboard.map((item) => {
     return { user: item.user, points: item.total };
   });
@@ -31,8 +33,6 @@ function CompactCard({ param, setExpanded }) {
   let sortedLeaderboard = usersPoints.sort(function (a, b) {
     return b.points - a.points;
   });
-
-  console.log(sortedLeaderboard);
 
   let users = sortedLeaderboard.map((item) => {
     return item.user;

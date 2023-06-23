@@ -142,7 +142,9 @@ const CheckResults = () => {
     return (
       <div className="App">
         <div className="AppGlass">
-          <LeaderContext.Provider value={leaderboard}>
+          <LeaderContext.Provider
+            value={{ leaderboard, userPredictions, finalResults }}
+          >
             <Sidebar />
             <MainDash />
             <RightSide />
