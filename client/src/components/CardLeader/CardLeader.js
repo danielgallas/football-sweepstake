@@ -23,21 +23,12 @@ const CardLeader = (props) => {
 
 // Compact Card
 function CompactCard({ param, setExpanded }) {
-  const allData = useContext(LeaderContext);
-  const { leaderboard } = allData;
+  const { orderedLeaderboard } = useContext(LeaderContext);
 
-  let usersPoints = leaderboard.map((item) => {
-    return { user: item.user, points: item.total };
-  });
-
-  let sortedLeaderboard = usersPoints.sort(function (a, b) {
-    return b.points - a.points;
-  });
-
-  let users = sortedLeaderboard.map((item) => {
+  let users = orderedLeaderboard.map((item) => {
     return item.user;
   });
-  let points = sortedLeaderboard.map((item) => {
+  let points = orderedLeaderboard.map((item) => {
     return item.points;
   });
 

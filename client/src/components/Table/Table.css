@@ -12,6 +12,10 @@
     width: 100%;
 }
 
+.MuiTable-root{
+    padding: 0px;
+}
+
 .MuiTableRow-root>*{
     padding: 10px;
 }
@@ -21,6 +25,7 @@
 }
 
 .Table td, th{
+    /* padding: 0px; */
     border: none !important;
 }
 

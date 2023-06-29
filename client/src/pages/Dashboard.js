@@ -1,6 +1,5 @@
 import player from "../pages/images/player.svg";
 import "../components/scoreboard.css";
-// import Match from "../components/Match";
 import instance from "../components/axios";
 import { useEffect, useState } from "react";
 import DisplayResults from "../components/DisplayResults";

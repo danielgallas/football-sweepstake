@@ -13,10 +13,6 @@ export const LeaderContext = createContext();
 // import DisplayWinners from "../components/DisplayWinners";
 // import NextMatch from "../components/NextMatch";
 
-// STUFF TO DO
-// DATA TO BE IMPORTED:
-// into the winners array push 3 things: a new array pointsRound1...pointsRound19, suarez, gremio final standing
-
 const CheckResults = () => {
   const [userPredictions, setUserPredictions] = useState(null);
   const [finalResults, setFinalResults] = useState(null);
@@ -58,6 +54,34 @@ const CheckResults = () => {
     });
   };
   // END OF Function that creates Leaderboard
+
+  // Function that orders the leaderboard
+  const orderLeaderboard = () => {
+    // Creates array with right positions of players
+
+    let usersPoints = leaderboard.map((item) => {
+      return { user: item.user, points: item.total };
+    });
+
+    let sortedLeaderboard = usersPoints.sort(function (a, b) {
+      return b.points - a.points;
+    });
+
+    let leaderboardPositions = sortedLeaderboard.map((item, index) => {
+      return { user: item.user, points: item.points, position: index + 1 };
+    });
+
+    let finalLeaderboard = leaderboardPositions.map((item, index) => {
+      if (index - 1 >= 0) {
+        if (item.points === leaderboardPositions[index - 1].points) {
+          item.position = leaderboardPositions[index - 1].position;
+        }
+      }
+      return item;
+    });
+    return finalLeaderboard;
+  };
+  // END OF Function that orders the leaderboard
 
   //  Function that calculates points from each user
   const calculate = (prediction1, prediction2, final1, final2, round) => {
@@ -139,11 +163,17 @@ const CheckResults = () => {
     return <p>No data...</p>;
   } else {
     createLeaderboard();
+    let orderedLeaderboard = orderLeaderboard();
     return (
       <div className="App">
         <div className="AppGlass">
           <LeaderContext.Provider
-            value={{ leaderboard, userPredictions, finalResults }}
+            value={{
+              orderedLeaderboard,
+              leaderboard,
+              userPredictions,
+              finalResults,
+            }}
           >
             <Sidebar />
             <MainDash />

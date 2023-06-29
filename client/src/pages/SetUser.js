@@ -2,6 +2,7 @@ import player from "../pages/images/player.svg";
 import instance from "../components/axios";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const SetUser = () => {
   const [allData, setAllData] = useState(null);
@@ -50,7 +51,12 @@ const SetUser = () => {
               return (
                 <p className="btn">
                   <button className="user-btn" key={item._id}>
-                    {item.user}
+                    <Link
+                      style={{ textDecoration: "none", color: "white" }}
+                      to={`/user/${item.user}`}
+                    >
+                      {item.user}
+                    </Link>
                   </button>
                 </p>
               );

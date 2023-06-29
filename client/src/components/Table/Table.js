@@ -11,17 +11,10 @@ import { useContext } from "react";
 import { LeaderContext } from "../../pages/Admin2";
 import matches from "../../data/matches";
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, "approved"),
-  createData("Ice cream sandwich", 237, 9.0, 37, "not approved"),
-  createData("Eclair", 262, 16.0, 24, "approved"),
-  createData("Cupcake", 305, 3.7, 67, "not approved"),
-  createData("Gingerbread", 356, 16.0, 49, "approved"),
-];
+const sxStyle = {
+  padding: "0px",
+  color: "red",
+};
 
 const makeStyles = (status) => {
   if (status === 100) {
@@ -37,10 +30,6 @@ export default function BasicTable() {
   const allData = useContext(LeaderContext);
   const { leaderboard, userPredictions, finalResults } = allData;
 
-  console.log(leaderboard);
-  console.log(userPredictions);
-  console.log(finalResults);
-
   return (
     <div className="TableContainer">
       <div className="Table">
@@ -49,7 +38,7 @@ export default function BasicTable() {
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
         >
-          <Table sx={{ minWidth: 350 }} aria-label="simple table">
+          <Table>
             <TableHead>
               <TableRow>
                 <TableCell>User</TableCell>
