@@ -11,21 +11,6 @@ import { useContext } from "react";
 import { LeaderContext } from "../../pages/Admin2";
 import matches from "../../data/matches";
 
-const sxStyle = {
-  padding: "0px",
-  color: "red",
-};
-
-const makeStyles = (status) => {
-  if (status === 100) {
-    return { background: "rgb(145 254 159 / 47%)", color: "green" };
-  } else if (status === 0) {
-    return { background: "#ffadad8f", color: "red" };
-  } else {
-    return { background: "#ffadad8f", color: "red" };
-  }
-};
-
 export default function BasicTable() {
   const allData = useContext(LeaderContext);
   const { leaderboard, userPredictions, finalResults } = allData;
@@ -38,7 +23,7 @@ export default function BasicTable() {
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
         >
-          <Table>
+          <Table size="small">
             <TableHead>
               <TableRow>
                 <TableCell>User</TableCell>
@@ -90,7 +75,7 @@ export default function BasicTable() {
           component={Paper}
           style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
         >
-          <Table sx={{ minWidth: 350 }} aria-label="simple table">
+          <Table sx={{ minWidth: 350 }} size="small" aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>User</TableCell>

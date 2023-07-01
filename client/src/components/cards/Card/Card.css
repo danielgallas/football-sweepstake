@@ -1,10 +1,9 @@
 .CompactCard {
     display: flex;
     flex: 1;
-    flex-direction: column;
-    height: 18rem !important;
+    height: 7rem !important;
     border-radius: 0.7rem;
-    padding: 0.5rem;
+    padding: 1rem;
     position: relative;
     cursor: pointer;
     color:white;

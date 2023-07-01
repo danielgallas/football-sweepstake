@@ -23,7 +23,7 @@
     align-items: center;
   }
 
-  body {
+body {
   font-family: 'Inter', sans-serif;
   background-color: var(--lavender-web)
 }
@@ -36,6 +36,7 @@
   background-color: var(--french-gray);
   overflow: hidden;
   grid-template-columns: 11rem auto 20rem;
+  gap: 16px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -49,7 +50,7 @@
   .AppGlass {
     grid-template-columns: 1fr;
   }
-  .AppGlass::-webkit-scrollbar{
+  /* .AppGlass::-webkit-scrollbar{
     display: none;
-  }
+  } */
 }
