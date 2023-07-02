@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   const sidebarVariants = {
     true: {
@@ -24,7 +24,8 @@ const Sidebar = () => {
       <div
         className="bars"
         style={expanded ? { left: "60%" } : { left: "5%" }}
-        onClick={() => setExpanded(!expanded)}
+        // onClick={() => setExpanded(!expanded)
+        onClick={() => setExpanded(false)}
       >
         <UilBars />
       </div>

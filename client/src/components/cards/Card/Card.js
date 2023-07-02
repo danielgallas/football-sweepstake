@@ -15,7 +15,8 @@ const Card = (props) => {
       {expanded ? (
         <ExpandedCard param={props} setExpanded={() => setExpanded(false)} />
       ) : (
-        <CompactCard param={props} setExpanded={() => setExpanded(true)} />
+        <CompactCard param={props} setExpanded={() => setExpanded(false)} />
+        // CHANGE setExpanded to TRUE to allow expanded cards
       )}
     </LayoutGroup>
   );
@@ -38,8 +39,8 @@ function CompactCard({ param, setExpanded }) {
         <CircularProgressbar
           minValue={1}
           maxValue={param.maxBarValue}
-          value={param.barValue}
-          text={`${param.barValue}/${param.maxBarValue}`}
+          value={Math.abs(param.barValue - 8)}
+          text={`${param.barValue}`}
         />
         {/* <span>{param.title}</span> */}
       </div>

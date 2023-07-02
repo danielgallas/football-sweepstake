@@ -26,12 +26,21 @@ export default function BasicTable() {
           <Table size="small">
             <TableHead>
               <TableRow>
-                <TableCell>User</TableCell>
-                <TableCell align="left">Team 1</TableCell>
+                <TableCell>Final result:</TableCell>
+                <TableCell align="left">
+                  {matches[finalResults.length - 1].team1}
+                </TableCell>
+                <TableCell align="left">
+                  {finalResults[finalResults.length - 1].finalScore1}
+                </TableCell>
+                <TableCell align="left">
+                  {finalResults[finalResults.length - 1].finalScore2}
+                </TableCell>
+                <TableCell align="left">
+                  {" "}
+                  {matches[finalResults.length - 1].team2}
+                </TableCell>
                 <TableCell align="left"></TableCell>
-                <TableCell align="left"></TableCell>
-                <TableCell align="left">Team 2</TableCell>
-                <TableCell align="left">Points</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

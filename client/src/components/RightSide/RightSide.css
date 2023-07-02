@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 768px) {
     .RightSide{
-        width: 100%;
+        width: 85%;
         margin-top: 0;
     }
     .RightSide>div{

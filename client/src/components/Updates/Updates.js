@@ -14,7 +14,7 @@ const TwitterContainer = () => {
       <div className="twitter-embed">
         <a
           className="twitter-timeline"
-          data-width="220"
+          data-width="240"
           data-height="500"
           data-theme="dark"
           data-tweet-limit="5"
