@@ -1,7 +1,7 @@
 .RightSide{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     justify-content: space-evenly;
 }
 
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 768px) {
     .RightSide{
-        width: 85%;
+        width: 100%;
         margin-top: 0;
     }
     .RightSide>div{

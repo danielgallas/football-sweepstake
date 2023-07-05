@@ -5,6 +5,8 @@
     padding: 50px;
 }
 
+.MainDash>h1{padding-bottom: 15px;}
+
 @media screen and (max-width: 1200px) {
     .MainDash {
         justify-content: flex-start;
@@ -15,5 +17,6 @@
 @media screen and (max-width: 768px) {
     .MainDash{
         align-items: center;
+        width: 100vw;
     }
 }

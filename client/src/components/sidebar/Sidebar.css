@@ -103,7 +103,8 @@
     }
 
 .bars{
-    display: flex;
+    /* display: flex; */
+    display: none;
     position: fixed;
     top: 2rem;
     left: 60%;

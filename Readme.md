@@ -14,14 +14,11 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
+- SetUsers: load all data here and pass it on downwards with useContext
+- Start working on update to results (segundo turno)
 - Dashboard:
 
-  - Rightside: Updates on the app + Twitter widget
-  - Fix problems (sizes, fonts, etc.)
   - Fix big expanded graphs
-  - Redo the setuser page with new design - correct routes
-  - Make the setUser page determine what will be shown in dashboard (using params)
-  - Fix all responsive issues
   - Fix directory structure, component names and capital letters in files
 
 - ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
@@ -54,9 +51,14 @@ There will be certain stages of implementation:
 
 #### DONE:
 
-  - Table last match result - useContext to get userPredictions - import match.js from data
-  - Create two tables
-  - Table next match predictions
+- Rightside: Updates on the app + Twitter widget
+- Fix problems (sizes, fonts, etc.)
+- Redo the setuser page with new design - correct routes
+- Make the setUser page determine what will be shown in dashboard (using params)
+- Fix all responsive issues
+- Table last match result - useContext to get userPredictions - import match.js from data
+- Create two tables
+- Table next match predictions
 - DONE: Sort out the logic for winners, results, etc. create calculating functions - should I store it all in React Redux?
 - DONE: implement NEXT MATCH component (see all predictions just for the next match):
   - DONE: clone Admin into Admin2.js and work only on Admin2.js for testing
