@@ -14,8 +14,11 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
+- Create an update to results (segundo turno):
+- New login2 page that sets users to
+
 - SetUsers: load all data here and pass it on downwards with useContext
-- Start working on update to results (segundo turno)
+
 - Dashboard:
 
   - Fix big expanded graphs
