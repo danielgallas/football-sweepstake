@@ -24,7 +24,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard2/:username" element={<Dashboard2 />} />
         <Route path="/thanks" element={<Thanks />} />
-        <Route path="/results" element={<CheckResults2 />} />
+        <Route path="/results" element={<CheckResults />} />
+        <Route path="/results2" element={<CheckResults2 />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/setuser" element={<SetUser />} />
         <Route path="/user/:username" element={<CheckResults2 />} />

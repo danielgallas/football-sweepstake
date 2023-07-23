@@ -2,10 +2,8 @@ import player from "../pages/images/player.svg";
 import "../components/scoreboard.css";
 import instance from "../components/axios";
 import { useEffect, useState } from "react";
-import DisplayResults from "../components/DisplayResults";
-import CheckResults from "./Admin";
 import { useParams } from "react-router-dom";
-import Match from "../components/Match";
+import Match from "../components/Match2";
 
 const Dashboard = () => {
   // const user = localStorage.getItem("user");

@@ -32,8 +32,6 @@ const SetUser = () => {
   if (!allData) {
     return <p>No data...</p>;
   } else {
-    // Function that calculates points from each user
-
     return (
       <article>
         <section className="side">

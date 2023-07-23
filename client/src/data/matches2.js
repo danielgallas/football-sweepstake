@@ -152,3 +152,5 @@ const matches = [
     place: "Maracana",
   },
 ];
+
+export default matches;
