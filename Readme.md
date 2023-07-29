@@ -15,8 +15,6 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 #### TO DO NOW:
 
 - Have a page for users to update results:
-  THIS NOW: find a way to add username to the store (the username will now come from useParams id)
-  - change backend so that post now changes to update - and so that all items in matches2 are ADDED to mongoDB scores, and do not REPLACE mongoDB scores
 
 AFTER THAT:
 
@@ -53,6 +51,8 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- THIS NOW: find a way to add username to the store (the username will now come from useParams id)
+  - change backend so that post now changes to update - and so that all items in matches2 are ADDED to mongoDB scores, and do not REPLACE mongoDB scores
 - Rightside: Updates on the app + Twitter widget
 - Fix problems (sizes, fonts, etc.)
 - Redo the setuser page with new design - correct routes

@@ -18,7 +18,7 @@ import {
 } from "../features/scores/scoresSlice.js";
 import { useNavigate, useParams } from "react-router-dom";
 
-function Match() {
+function Match(prevData) {
   const [page, setPage] = useState(0);
   const [match, setMatch] = useState(true);
   const [submit, setSubmit] = useState(false);
@@ -68,14 +68,20 @@ function Match() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(changeSubmit());
+    let newData = prevData.prevData;
+    userScores.score.scores.map((item) => {
+      newData.scores.push(item);
+    });
 
+    // console.log(newData);
+    // console.log(userScores.score);
     try {
-      await instance.post("/api/v1/scores/", userScores.score);
+      await instance.put("/api/v1/scores/" + params.username, newData);
     } catch (error) {
       console.log(error);
     }
 
-    navigate("../thanks");
+    // navigate("../thanks");
   };
 
   const submitDisplay = (
@@ -175,7 +181,7 @@ function Match() {
 
   const params = useParams();
   localStorage.setItem("user", params.username);
-  console.log(userScores.score);
+  // console.log(prevData.prevData);
   return (
     <div className="login-container">
       <p className="welcome-message">

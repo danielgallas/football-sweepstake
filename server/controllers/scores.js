@@ -19,6 +19,20 @@ const getData = async (req, res) => {
   }
 };
 
+const updateAllData = async (req, res) => {
+  try {
+    const scores = await Scores.findOneAndReplace(
+      { user: req.params.user },
+      req.body
+    );
+    // console.log(scores);
+    // console.log(req.body);
+    res.status(200).json({ scores });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
 const getAllData = async (req, res) => {
   try {
     const scores = await Scores.find({});
@@ -28,4 +42,4 @@ const getAllData = async (req, res) => {
   }
 };
 
-module.exports = { create, getData, getAllData };
+module.exports = { create, getData, getAllData, updateAllData };

@@ -1,7 +1,7 @@
 import player from "../pages/images/player.svg";
 import instance from "../components/axios";
 import { useState, useEffect } from "react";
-import matches from "../data/matches";
+import matches from "../data/matches_total";
 import DisplayWinners from "../components/DisplayWinners";
 import NextMatch from "../components/NextMatch";
 import Loading from "../components/Loading";

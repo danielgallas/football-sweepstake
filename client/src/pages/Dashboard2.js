@@ -10,11 +10,13 @@ const Dashboard = () => {
   const username = useParams();
   const user = username.username;
   const [prevUser, setPrevUser] = useState(null);
+  const [prevData, setPrevData] = useState(null);
 
   const getUser = async () => {
     try {
       const userFromDB = await instance.get("/api/v1/scores/" + user);
       setPrevUser(userFromDB.data.scores.user);
+      setPrevData(userFromDB.data.scores);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +32,20 @@ const Dashboard = () => {
         <img src={player} alt="" />
       </section>
       <section className="main">
-        {user ? prevUser ? <Match /> : <Match /> : "User not authorised"}
+        {/* {user
+          ? prevUser
+            ? console.log(prevData)
+            : console.log("not")
+          : console.log("not")} */}
+        {user ? (
+          prevData ? (
+            <Match prevData={prevData} />
+          ) : (
+            <Match />
+          )
+        ) : (
+          "User not authorised"
+        )}
       </section>
     </article>
   );
