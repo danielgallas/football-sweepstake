@@ -16,7 +16,7 @@ import {
   updateUser,
   changeSubmit,
 } from "../features/scores/scoresSlice.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Match() {
   const [page, setPage] = useState(0);
@@ -96,13 +96,11 @@ function Match() {
     <>
       {matchesSlice.map((item) => {
         const { team1, team2, _id, date, place, round } = item;
-
         return (
           <div className="welcome-message" key={round}>
             <p className="teams">{team1}</p>
 
             {/* SCOREBOARD */}
-
             <span className="score">
               <button
                 className="score-number"
@@ -112,10 +110,11 @@ function Match() {
               >
                 <FaMinusCircle />
               </button>
-              {scores[_id].score1}
+              {scores[_id - 19].score1}
               <button
                 className="score-number"
                 onClick={() => {
+                  // console.log(_id);
                   dispatch(increase1({ _id }));
                 }}
               >
@@ -132,7 +131,7 @@ function Match() {
               >
                 <FaMinusCircle />
               </button>
-              {scores[_id].score2}
+              {scores[_id - 19].score2}
               <button
                 className="score-number"
                 onClick={() => {
@@ -142,9 +141,7 @@ function Match() {
                 <FaPlusCircle />
               </button>
             </span>
-
             {/* END OF SCOREBOARD */}
-
             <p className="teams">{team2}</p>
             <p className="small-print">
               <b>ROUND {round}</b>, {date}, {place}
@@ -162,7 +159,7 @@ function Match() {
           <FaArrowCircleLeft />
         </button>
         <button onClick={() => console.log(page)}>
-          {page < 18 ? `Rounds ${page + 1} & ${page + 2}` : "Round 19"}
+          {page < 18 ? `Match ${page + 1} & ${page + 2}` : "Round 19"}
         </button>
         <button
           className="btn-page"
@@ -176,11 +173,13 @@ function Match() {
     </>
   );
 
+  const params = useParams();
+  localStorage.setItem("user", params.username);
+  console.log(userScores.score);
   return (
     <div className="login-container">
       <p className="welcome-message">
-        Hi <span className="user">{userScores.score.user}</span>.{" "}
-        {console.log(userScores)}
+        Hi <span className="user">{params.username}</span>.{" "}
         {!submit ? "Enter your predictions" : "Thank you for your input!"}
       </p>
       {match ? matchDisplay : submitDisplay}

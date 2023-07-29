@@ -14,22 +14,21 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
-- Create an update to results (segundo turno):
-- New login2 page that sets users to
+- Have a page for users to update results:
+  THIS NOW: find a way to add username to the store (the username will now come from useParams id)
+  - change backend so that post now changes to update - and so that all items in matches2 are ADDED to mongoDB scores, and do not REPLACE mongoDB scores
+
+AFTER THAT:
 
 - SetUsers: load all data here and pass it on downwards with useContext
-
 - Dashboard:
-
   - Fix big expanded graphs
   - Fix directory structure, component names and capital letters in files
-
-- ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
-
 - review app and get rid of things that don't need to exist (server urls)
 - separate components in admin page (find a new name for it)
-
 - build a webscrapper that loads results into a mongodb collection
+
+- ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
 
 #### THE MISSION:
 
