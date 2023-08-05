@@ -5,28 +5,33 @@
 https://coolors.co/47abdc-121218-27272d-dadde8-c7c7cd
 https://myfreelogomaker.com/brandkit/129244095/logo-files
 
-#### MENU ITEMS:
-
-- Dashboard: leaderboard (your position/leaderboard) + last match result + predictions and who scored how much;
-- Next match: simulation if you win what will the leaderboard be like
-- Predictions (by match) and (by user)
-- Your stats: fun stuff - based on your predictions, where would Gremio have been in 2022. how many goals Suarez needs to score per match
-
 #### TO DO NOW:
 
-- Have a page for users to update results:
+- Encerrar apostas
+
+- Time to do a major clean up:
+  - Rearrange folder structure
 
 AFTER THAT:
 
-- SetUsers: load all data here and pass it on downwards with useContext
-- Dashboard:
-  - Fix big expanded graphs
-  - Fix directory structure, component names and capital letters in files
-- review app and get rid of things that don't need to exist (server urls)
-- separate components in admin page (find a new name for it)
-- build a webscrapper that loads results into a mongodb collection
+- Dashboard: Add Gremio position to frontpage (rightsite)
+- Dashboard: Add Suarez goals to frontpage (rightside)
+- Create a All Predictions page, where users can check out what other users bet - by match and by user
+- Create a Rules page, simply stating the rules
+- Add responsive menu icon
+- Create a Blog page, with posts about the competition
+- Create a Fun Stats page (comparing Gremio’s real performance and standings in the championship with player’s predictions in the Bolao, how many goals Suarez must score per game, etc)
+- Build a webscrapper that loads results into a mongodb collection
 
 - ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
+
+#### MENU ITEMS:
+
+- Dashboard: main stats
+- All Predictions: (by match) and (by user)
+- Fun stats: fun stuff - based on your predictions, where would Gremio have been in 2022. how many goals Suarez needs to score per match
+- Blog: news about the competition
+- Rules: static page
 
 #### THE MISSION:
 
@@ -38,21 +43,20 @@ There will be certain stages of implementation:
 - DONE - Responsive login page (frontend, backend and database)
 - DONE - The guessing page - with autosave and a submit button, for all final users to submit.
 - DONE - Navigation for all users to see all guesses - per match, per user and a results table (which shows who is winning). Results will be pushed by the admin
-- Redesign of the website (responsive)
+- DONE - Redesign of the website (responsive)
+- Improve features by implementing menu
 - Full automation, with results being updated automatically (I will have to either find an API or try to build some sort of scrapper)
 
 #### LATER:
 
-- put isLoading functionality in the DisplayResults component
-- issue JWT tokens
-- persist JWT tokens (refresh tokens)
-- create validators for register/login
-- handle server errors
-
 #### DONE:
 
+- Dashboard: Add POINTS in the column table
+- SetUsers: load all data here and pass it on downwards with useContext
+- Have a page for users to update results:
+- THIS NOW: FInd out why results is not working with teste user that has 38 rounds. Error message: react-dom.production.min.js:189 TypeError: Cannot read properties of undefined (reading 'round') Admin.js:139:58
 - THIS NOW: find a way to add username to the store (the username will now come from useParams id)
-  - change backend so that post now changes to update - and so that all items in matches2 are ADDED to mongoDB scores, and do not REPLACE mongoDB scores
+- change backend so that post now changes to update - and so that all items in matches2 are ADDED to mongoDB scores, and do not REPLACE mongoDB scores
 - Rightside: Updates on the app + Twitter widget
 - Fix problems (sizes, fonts, etc.)
 - Redo the setuser page with new design - correct routes

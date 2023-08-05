@@ -1,6 +1,7 @@
 import React from "react";
 import "./RightSide.css";
-import Updates from "../Updates/Updates";
+// import Updates from "../Updates/Updates";
+import PositionChampionship from "./PositionChampionship";
 // import CustomerReview from "../CustomerReview/CustomerReview";
 
 const RightSide = () => {
@@ -8,7 +9,8 @@ const RightSide = () => {
     <div className="RightSide">
       <div>
         <h3>Updates</h3>
-        <Updates />
+        <PositionChampionship />
+        {/* <Updates /> */}
       </div>
       {/* <div>
         <h3>Customer Review</h3>

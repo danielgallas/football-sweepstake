@@ -81,7 +81,7 @@ function Match(prevData) {
       console.log(error);
     }
 
-    // navigate("../thanks");
+    navigate("../thanks");
   };
 
   const submitDisplay = (

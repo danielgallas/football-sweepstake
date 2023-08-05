@@ -22,7 +22,8 @@ function App() {
         <Route path="/login2" element={<Login2 />} />
         <Route path="/match" element={<Match />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard2/:username" element={<Dashboard2 />} />
+        {/* <Route path="/dashboard2/:username" element={<Dashboard2 />} /> */}
+        <Route path="/dashboard2/:username" element={<Thanks />} />
         <Route path="/thanks" element={<Thanks />} />
         <Route path="/results" element={<CheckResults />} />
         <Route path="/results2" element={<CheckResults2 />} />

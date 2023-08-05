@@ -12,7 +12,8 @@ function Thanks() {
         <div className="welcome-message">
           <h1>Thank you, {user}!</h1>
           <p>
-            <Link to="/dashboard">Click here to see your predictions</Link>
+            The deadline for entering your predictions is closed.
+            {/* <Link to="/results">Click here to see your predictions</Link> */}
           </p>
         </div>
       </section>

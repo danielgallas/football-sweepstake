@@ -283,7 +283,7 @@ const matches = [
     _id: 35,
     round: 36,
     team1: "Gremio",
-    team2: "GOias",
+    team2: "Goias",
     date: "2023-11-25",
     place: "Arena do Gremio",
   },

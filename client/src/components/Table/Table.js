@@ -40,7 +40,7 @@ export default function BasicTable() {
                   {" "}
                   {matches[finalResults.length - 1].team2}
                 </TableCell>
-                <TableCell align="left"></TableCell>
+                <TableCell align="left">Points</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
