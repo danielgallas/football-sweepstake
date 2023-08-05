@@ -8,9 +8,7 @@ const scores = require("./routes/scores");
 const results = require("./routes/results");
 
 const port = process.env.PORT || 5000;
-
-// const url = "http://localhost:3000";
-const url = "https://football-sweepstake.netlify.app";
+const url = process.env.FRONTEND_URL;
 
 // middleware
 app.use(express.json());
