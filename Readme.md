@@ -7,12 +7,11 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
-- Encerrar apostas
-
 - Time to do a major clean up:
-  - Rearrange folder structure
+  - Start developing the new Dashboard - get rid of the Admin page
+  - Start working on Dashboard design
 
-AFTER THAT:
+### AFTER THAT:
 
 - Dashboard: Add Gremio position to frontpage (rightsite)
 - Dashboard: Add Suarez goals to frontpage (rightside)
@@ -24,6 +23,20 @@ AFTER THAT:
 - Build a webscrapper that loads results into a mongodb collection
 
 - ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
+
+#### FOLDER STRUCTURE:
+
+- Component: (PascalCase)
+  - Card
+  - Table
+  - Sidebar
+- Feature: (PascalCase)
+  - Login
+  - Dashboard
+  - Loading
+- utils
+  - fetch-data.js
+  - utils.js
 
 #### MENU ITEMS:
 
@@ -51,6 +64,8 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Rearrange folder structure: create main folders where everything will slot in
+- Encerrar apostas
 - Dashboard: Add POINTS in the column table
 - SetUsers: load all data here and pass it on downwards with useContext
 - Have a page for users to update results:
