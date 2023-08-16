@@ -32,14 +32,20 @@ const CheckResults = () => {
       });
       finalResults.map((matchround) => {
         // calculates points
-        let pointsAwarded = calculate(
-          item.scores[matchround.round - 1].score1,
-          item.scores[matchround.round - 1].score2,
-          matchround.finalScore1,
-          matchround.finalScore2,
-          matchround.round
-        );
 
+        let pointsAwarded = 0;
+
+        if (!item.scores[matchround.round - 1]) {
+          pointsAwarded = 0;
+        } else {
+          pointsAwarded = calculate(
+            item.scores[matchround.round - 1].score1,
+            item.scores[matchround.round - 1].score2,
+            matchround.finalScore1,
+            matchround.finalScore2,
+            matchround.round
+          );
+        }
         // adds points to total point of each user
         leaderboard[leaderboard.length - 1].total =
           leaderboard[leaderboard.length - 1].total + pointsAwarded;

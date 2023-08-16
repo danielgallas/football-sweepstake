@@ -44,11 +44,10 @@ const SetUser = () => {
             <div>
               <b>Who are you?</b>
             </div>
-            {console.log(allData)}
             {allData.map((item) => {
               return (
-                <p className="btn">
-                  <button className="user-btn" key={item._id}>
+                <p className="btn" key={item._id}>
+                  <button className="user-btn">
                     <Link
                       style={{ textDecoration: "none", color: "white" }}
                       to={`/user/${item.user}`}
