@@ -5,11 +5,20 @@
 https://coolors.co/47abdc-121218-27272d-dadde8-c7c7cd
 https://myfreelogomaker.com/brandkit/129244095/logo-files
 
+#### CURRENT STAGE OF DEVELOPMENT
+
+- Time to do a major clean up - Start working on Dashboard design - basic, basic, basic design (think about better design later)
+
 #### TO DO NOW:
 
-- Time to do a major clean up:
-  - Start developing the new Dashboard - get rid of the Admin page
-  - Start working on Dashboard design
+- Create a dashboard that is an empty shell
+- Do a menu:
+- Menu items:
+- Leaderboard
+- Last match
+- Next match
+- All matches by user
+- All matches by match
 
 ### AFTER THAT:
 
@@ -64,6 +73,7 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- DONE: Get a basic map of variables that will be used
 - Rearrange folder structure: create main folders where everything will slot in
 - Encerrar apostas
 - Dashboard: Add POINTS in the column table

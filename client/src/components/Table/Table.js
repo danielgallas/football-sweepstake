@@ -28,6 +28,7 @@ export default function BasicTable() {
               <TableRow>
                 <TableCell>Final result:</TableCell>
                 <TableCell align="left">
+                  {console.log(finalResults.length)}
                   {matches[finalResults.length - 1].team1}
                 </TableCell>
                 <TableCell align="left">
