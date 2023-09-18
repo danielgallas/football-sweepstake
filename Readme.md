@@ -11,14 +11,9 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
-- Create a dashboard that is an empty shell
-- Do a menu:
-- Menu items:
-- Leaderboard
-- Last match
-- Next match
-- All matches by user
-- All matches by match
+- Create Leaderboard page (design it)
+- Create Last Match page
+- Create Next Match page
 
 ### AFTER THAT:
 
@@ -73,6 +68,14 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Create a navbar menu:
+- Create dashboard structure to hold menu
+- Menu items:
+- Leaderboard
+- Last match
+- Next match
+- All matches by user
+- All matches by match
 - DONE: Get a basic map of variables that will be used
 - Rearrange folder structure: create main folders where everything will slot in
 - Encerrar apostas

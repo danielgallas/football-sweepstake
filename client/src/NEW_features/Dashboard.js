@@ -3,6 +3,7 @@ import useFetch from "../NEW_hooks/useFetch";
 import Loading from "../NEW_components/Loading";
 import Calculate from "../NEW_utils/Calculate";
 import Leaderboard from "../NEW_components/Leaderboard";
+import Navbar from "../NEW_components/Navbar";
 
 const Dashboard = () => {
   // EXPLAINING ALL THE VARIABLES:
@@ -28,7 +29,12 @@ const Dashboard = () => {
 
   if (userPredictions && finalResults) {
     let orderedLeaderboard = Calculate(userPredictions, finalResults);
-    return <Leaderboard data={orderedLeaderboard} />;
+    return (
+      <>
+        <Navbar />
+        <Leaderboard data={orderedLeaderboard} />
+      </>
+    );
   } else if (loading) {
     return <Loading />;
   } else if (error) {
