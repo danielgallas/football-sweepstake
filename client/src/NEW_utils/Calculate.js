@@ -66,11 +66,6 @@ const CheckResults = (userPredictions, finalResults) => {
   // END OF Function that orders the leaderboard
   //  Function that calculates points from each user
   const calculate = (prediction1, prediction2, final1, final2, round) => {
-    // ROUND 15 POSTPONED: CORINTHIANS
-    if (round === 15) {
-      return 0;
-    }
-    // END OF ROUND 15 POSTPONED: CORINTHIANS
     if (final1 === final2) {
       if (prediction1 === prediction2) {
         if (prediction1 === final1 && prediction2 === final2) {

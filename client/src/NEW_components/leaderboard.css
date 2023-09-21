@@ -1,0 +1,10 @@
+.leaderboard_main {
+    display: block;
+    margin: auto;
+    width: 90%;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    padding-top: 80px;
+    background-color: aqua;
+}
