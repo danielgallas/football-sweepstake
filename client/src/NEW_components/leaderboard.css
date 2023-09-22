@@ -1,10 +1,22 @@
 .leaderboard_main {
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     margin: auto;
     width: 90%;
     align-items: center;
     text-align: center;
-    padding: 10px;
     padding-top: 80px;
-    background-color: aqua;
+    row-gap: 2px;
+}
+
+.grid-title{
+    background-color: bisque;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding: 15px;
+}
+
+.grid-child{
+    padding: 15px;
+    background-color: azure;
 }

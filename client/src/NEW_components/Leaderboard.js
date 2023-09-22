@@ -6,12 +6,17 @@ const Leaderboard = (orderedLeaderBoard) => {
 
   return (
     <div className="leaderboard_main">
-      <h1>Leaderboard</h1>
+      <div className="grid-title">
+        <h3>Leaderboard</h3>
+      </div>
+
       {leaders.map((item, index) => {
         return (
-          <p key={index}>
-            {item.position}. {item.user} : {item.points} points
-          </p>
+          <React.Fragment key={index}>
+            <div className="grid-child"> {item.position} </div>
+            <div className="grid-child"> {item.user}</div>
+            <div className="grid-child"> {item.points} points</div>
+          </React.Fragment>
         );
       })}
     </div>
