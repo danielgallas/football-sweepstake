@@ -1,11 +1,14 @@
+import "./App.css";
 import React, { useState, useEffect } from "react";
-import useFetch from "../NEW_hooks/useFetch";
-import Loading from "../NEW_components/Loading";
-import Calculate from "../NEW_utils/Calculate";
-import Leaderboard from "../NEW_components/Leaderboard";
-import Navbar from "../NEW_components/Navbar";
+import useFetch from "./NEW_hooks/useFetch";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Loading from "./components/Loading";
+import Calculate from "./NEW_utils/Calculate";
+import Navbar from "./NEW_components/Navbar";
+import Leaderboard from "./NEW_components/Leaderboard";
+import LastMatch from "./NEW_features/LastMatch";
 
-const Dashboard = () => {
+function AppNew() {
   // EXPLAINING ALL THE VARIABLES:
   //
   // Two sets of data are fetched from database:
@@ -30,15 +33,20 @@ const Dashboard = () => {
   if (userPredictions && finalResults) {
     let orderedLeaderboard = Calculate(userPredictions, finalResults);
     return (
-      <>
+      <BrowserRouter>
         <Navbar />
-        <Leaderboard data={orderedLeaderboard} />
-      </>
+        <Routes>
+          <Route path="/" element={<Leaderboard data={orderedLeaderboard} />} />
+          <Route path="/lastmatch" element={<LastMatch />} />
+          <Route path="/loading" element={<Loading />} />
+        </Routes>
+      </BrowserRouter>
     );
   } else if (loading) {
     return <Loading />;
   } else if (error) {
-    console.log(error);
+    return <Loading />;
+    // console.log(error);
   }
-};
-export default Dashboard;
+}
+export default AppNew;

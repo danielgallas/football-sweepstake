@@ -8,10 +8,12 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 #### CURRENT STAGE OF DEVELOPMENT
 
 - Time to do a major clean up - Start working on Dashboard design - basic, basic, basic design (think about better design later)
+- Work on Last Match page
+- Fix Leaderboard design (table not looking ok) in mobile view
+- Organize Leaderboard, Last Match, etc. in proper folders. What is a component? What is a feature?
 
 #### TO DO NOW:
 
-- Create Leaderboard page (design it)
 - Create Last Match page
 - Create Next Match page
 
@@ -68,6 +70,7 @@ There will be certain stages of implementation:
 
 #### DONE:
 
+- Create Leaderboard page (design it)
 - Create a navbar menu:
 - Create dashboard structure to hold menu
 - Menu items:

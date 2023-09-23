@@ -5,7 +5,8 @@ import CheckResults from "./pages/Admin";
 import CheckResults2 from "./pages/Admin2";
 import Loading from "./components/Loading";
 import SetUser from "./pages/SetUser";
-import Testing from "./NEW_features/Dashboard";
+import Dashboard from "./NEW_features/Dashboard";
+import LastMatch from "./NEW_features/LastMatch";
 import Login from "./pages/Login"; // THIS IS NEEDED BECAUSE OF CSS STYLING
 // import Login2 from "./pages/Login2";
 // import Match from "./components/Match";
@@ -22,7 +23,8 @@ function App() {
         <Route path="/dashboard2/:username" element={<Thanks />} />
         <Route path="/thanks" element={<Thanks />} />
         <Route path="/loading" element={<Loading />} />
-        <Route path="/testing" element={<Testing />} />
+        <Route path="/testing" element={<Dashboard />} />
+        <Route path="/lastmatch" element={<LastMatch />} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="/results" element={<CheckResults />} /> */}
         {/* <Route path="/results2" element={<CheckResults2 />} /> */}

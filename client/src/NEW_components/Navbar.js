@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { FaBars, FaBraille, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
         <h3>Sweepstake</h3>
         <nav ref={navRef}>
           <a href="/">Leaderboard</a>
-          <a href="/">Last match</a>
+          <a href="/lastmatch">Last match</a>
           <a href="/">Next match</a>
           <a href="/">All matches - by user</a>
           <a href="/">All matches - by match</a>
