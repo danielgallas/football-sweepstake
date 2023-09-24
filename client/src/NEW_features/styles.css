@@ -1,0 +1,38 @@
+.main {
+    display: grid;
+    margin: auto;
+    width: 90%;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+    row-gap: 2px;
+}
+
+.leaderboard-main {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.last-match-main {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-title {
+    background-color: bisque;
+    padding: 15px;
+}
+
+.leaderboard-grid-title {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.last-match-grid-title {
+    grid-column-start: 1;
+    grid-column-end: 7;
+}
+
+.grid-child{
+    padding: 15px;
+    height: 100%;
+    background-color: azure;
+}

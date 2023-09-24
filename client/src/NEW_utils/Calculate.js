@@ -45,13 +45,22 @@ const CheckResults = (userPredictions, finalResults) => {
   const orderLeaderboard = () => {
     // Creates array with right positions of players
     let usersPoints = leaderboard.map((item) => {
-      return { user: item.user, points: item.total };
+      return {
+        user: item.user,
+        points: item.total,
+        roundpoints: item.roundpoints,
+      };
     });
     let sortedLeaderboard = usersPoints.sort(function (a, b) {
       return b.points - a.points;
     });
     let leaderboardPositions = sortedLeaderboard.map((item, index) => {
-      return { user: item.user, points: item.points, position: index + 1 };
+      return {
+        user: item.user,
+        points: item.points,
+        position: index + 1,
+        roundpoints: item.roundpoints,
+      };
     });
     let finalLeaderboard = leaderboardPositions.map((item, index) => {
       if (index - 1 >= 0) {
@@ -110,7 +119,7 @@ const CheckResults = (userPredictions, finalResults) => {
   // END OF Function that calculates points from each user
   createLeaderboard();
   let orderedLeaderboard = orderLeaderboard();
-  return orderedLeaderboard;
+  return { leaderboard, orderedLeaderboard };
 };
 
 export default CheckResults;

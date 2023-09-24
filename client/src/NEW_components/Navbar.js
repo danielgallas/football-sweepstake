@@ -16,7 +16,7 @@ const Navbar = () => {
         <nav ref={navRef}>
           <a href="/">Leaderboard</a>
           <a href="/lastmatch">Last match</a>
-          <a href="/">Next match</a>
+          <a href="/nextmatch">Next match</a>
           <a href="/">All matches - by user</a>
           <a href="/">All matches - by match</a>
           <a href="/">Fun stats</a>

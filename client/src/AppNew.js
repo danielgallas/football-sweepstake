@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loading from "./components/Loading";
 import Calculate from "./NEW_utils/Calculate";
 import Navbar from "./NEW_components/Navbar";
-import Leaderboard from "./NEW_components/Leaderboard";
+import Leaderboard from "./NEW_features/Leaderboard";
 import LastMatch from "./NEW_features/LastMatch";
+import NextMatch from "./NEW_features/NextMatch";
 
 function AppNew() {
   // EXPLAINING ALL THE VARIABLES:
@@ -31,13 +32,19 @@ function AppNew() {
   }, [scores, results]);
 
   if (userPredictions && finalResults) {
-    let orderedLeaderboard = Calculate(userPredictions, finalResults);
+    let leaderdata = Calculate(userPredictions, finalResults);
     return (
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Leaderboard data={orderedLeaderboard} />} />
-          <Route path="/lastmatch" element={<LastMatch />} />
+          <Route path="/" element={<Leaderboard data={leaderdata} />} />
+          <Route
+            path="/lastmatch"
+            element={
+              <LastMatch data={{ userPredictions, finalResults, leaderdata }} />
+            }
+          />
+          <Route path="/nextmatch" element={<NextMatch />} />
           <Route path="/loading" element={<Loading />} />
         </Routes>
       </BrowserRouter>

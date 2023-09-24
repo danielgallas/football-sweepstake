@@ -7,69 +7,30 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### CURRENT STAGE OF DEVELOPMENT
 
-- Time to do a major clean up - Start working on Dashboard design - basic, basic, basic design (think about better design later)
-- Work on Last Match page
-- Fix Leaderboard design (table not looking ok) in mobile view
-- Organize Leaderboard, Last Match, etc. in proper folders. What is a component? What is a feature?
+- Time to do a major clean up - app with all functionalities and basic, basic, basic design (think about better design later)
 
 #### TO DO NOW:
 
-- Create Last Match page
-- Create Next Match page
+- Create NextMatch
 
 ### AFTER THAT:
 
-- Dashboard: Add Gremio position to frontpage (rightsite)
-- Dashboard: Add Suarez goals to frontpage (rightside)
-- Create a All Predictions page, where users can check out what other users bet - by match and by user
-- Create a Rules page, simply stating the rules
-- Add responsive menu icon
-- Create a Blog page, with posts about the competition
-- Create a Fun Stats page (comparing Gremio’s real performance and standings in the championship with player’s predictions in the Bolao, how many goals Suarez must score per game, etc)
-- Build a webscrapper that loads results into a mongodb collection
-
-- ALL CHANGES FOR V2.0 WILL BE DONE IN ADMIN2
-
-#### FOLDER STRUCTURE:
-
-- Component: (PascalCase)
-  - Card
-  - Table
-  - Sidebar
-- Feature: (PascalCase)
-  - Login
-  - Dashboard
-  - Loading
-- utils
-  - fetch-data.js
-  - utils.js
-
-#### MENU ITEMS:
-
-- Dashboard: main stats
-- All Predictions: (by match) and (by user)
-- Fun stats: fun stuff - based on your predictions, where would Gremio have been in 2022. how many goals Suarez needs to score per match
-- Blog: news about the competition
-- Rules: static page
+- Correct all designs (Leaderboard, NextMatch, etc.) in responsive mobile
+- Improve design of each page (turn "300 points" to green)
 
 #### THE MISSION:
 
 - Objective:
   A office-type sweepstake app, where users try to guess the results of all of Gremio’s matches in Brasileirao 2023. Correct results and exact matches will yield points. The person with most points will win the sweepstake.
 
-There will be certain stages of implementation:
-
-- DONE - Responsive login page (frontend, backend and database)
-- DONE - The guessing page - with autosave and a submit button, for all final users to submit.
-- DONE - Navigation for all users to see all guesses - per match, per user and a results table (which shows who is winning). Results will be pushed by the admin
-- DONE - Redesign of the website (responsive)
-- Improve features by implementing menu
+- Finishing all items in the menu
+- Improve each feature and the design
 - Full automation, with results being updated automatically (I will have to either find an API or try to build some sort of scrapper)
-
-#### LATER:
 
 #### DONE:
 
+- Work on Last Match page: find a way to get points for each use (may need a new variable - called roundpoints in the old design Table.js in components)
+- Organize Leaderboard, Last Match, etc. in proper folders. What is a component? What is a feature?
 - Create Leaderboard page (design it)
 - Create a navbar menu:
 - Create dashboard structure to hold menu
