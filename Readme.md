@@ -11,7 +11,7 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
-- Create NextMatch
+- Create All Matches by User (simplified version, long list)
 
 ### AFTER THAT:
 
@@ -29,6 +29,7 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### DONE:
 
+- Create NextMatch
 - Work on Last Match page: find a way to get points for each use (may need a new variable - called roundpoints in the old design Table.js in components)
 - Organize Leaderboard, Last Match, etc. in proper folders. What is a component? What is a feature?
 - Create Leaderboard page (design it)

@@ -44,7 +44,10 @@ function AppNew() {
               <LastMatch data={{ userPredictions, finalResults, leaderdata }} />
             }
           />
-          <Route path="/nextmatch" element={<NextMatch />} />
+          <Route
+            path="/nextmatch"
+            element={<NextMatch data={{ userPredictions, finalResults }} />}
+          />
           <Route path="/loading" element={<Loading />} />
         </Routes>
       </BrowserRouter>
