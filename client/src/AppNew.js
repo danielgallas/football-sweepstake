@@ -9,6 +9,7 @@ import Leaderboard from "./NEW_features/Leaderboard";
 import LastMatch from "./NEW_features/LastMatch";
 import NextMatch from "./NEW_features/NextMatch";
 import AllMatchesRound from "./NEW_features/AllMatchesRound";
+import AllMatchesUser from "./NEW_features/AllMatchesUser";
 
 function AppNew() {
   // EXPLAINING ALL THE VARIABLES:
@@ -40,6 +41,10 @@ function AppNew() {
         <Routes>
           <Route path="/" element={<Leaderboard data={leaderdata} />} />
           <Route
+            path="/leaderboard"
+            element={<Leaderboard data={leaderdata} />}
+          />
+          <Route
             path="/lastmatch"
             element={
               <LastMatch data={{ userPredictions, finalResults, leaderdata }} />
@@ -51,7 +56,15 @@ function AppNew() {
           />
           <Route
             path="/allrounds"
-            element={<AllMatchesRound data={{ userPredictions, leaderdata }} />}
+            element={
+              <AllMatchesRound
+                data={{ userPredictions, leaderdata, finalResults }}
+              />
+            }
+          />
+          <Route
+            path="/allusers"
+            element={<AllMatchesUser data={{ userPredictions, leaderdata }} />}
           />
           <Route path="/loading" element={<Loading />} />
         </Routes>

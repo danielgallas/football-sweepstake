@@ -12,14 +12,16 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <h3>Sweepstake</h3>
+        <a href="/" style={{ textDecoration: "none" }}>
+          <h3>Sweepstake</h3>
+        </a>
         <nav ref={navRef}>
-          <a href="/">Leaderboard</a>
+          <a href="/leaderboard">Leaderboard</a>
           <a href="/lastmatch">Last match</a>
           <a href="/nextmatch">Next match</a>
           <a href="/allrounds">All matches - by rounds</a>
-          <a href="/">All matches - by user</a>
-          <a href="/">Fun stats</a>
+          <a href="/allusers">All matches - by user</a>
+          {/* <a href="/">Fun stats</a> */}
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button>

@@ -3,8 +3,8 @@ import matches from "../data/matches_total";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const AllMatchesRound = (data) => {
-  const [round, setRound] = useState(18);
-  const { userPredictions } = data.data;
+  const [round, setRound] = useState(0);
+  const { userPredictions, finalResults } = data.data;
 
   const handleRound = (order) => {
     if (order === "add") {
@@ -22,7 +22,19 @@ const AllMatchesRound = (data) => {
           <h3>All Matches by Round</h3>
         </div>
         <div className="grid-title last-match-grid-title">
-          <h4>Round {round + 1}</h4>
+          <h4>
+            Round {round + 1}
+            {data.data.leaderdata.leaderboard[0].roundpoints[round + 1]
+              ? ": " +
+                matches[round].team1 +
+                " " +
+                finalResults[round].finalScore1 +
+                " x " +
+                finalResults[round].finalScore2 +
+                " " +
+                matches[round].team2
+              : ""}
+          </h4>
         </div>
         {userPredictions.map((item, index) => {
           const { user, scores } = item;
@@ -49,6 +61,7 @@ const AllMatchesRound = (data) => {
             );
         })}
       </div>
+      {/* Bottom buttons */}
       <div className="bottom-buttons">
         <button
           className={round < 1 ? "disabled" : "button"}

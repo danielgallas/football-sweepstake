@@ -12,6 +12,9 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 #### TO DO NOW:
 
 - Create All Matches by User
+- Create new page
+- Copy elements that will be used from All Matches by Rounds
+- Change what will be mapped (userPredictions)
 
 ### AFTER THAT:
 
