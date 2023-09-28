@@ -17,8 +17,8 @@ const Navbar = () => {
           <a href="/">Leaderboard</a>
           <a href="/lastmatch">Last match</a>
           <a href="/nextmatch">Next match</a>
+          <a href="/allrounds">All matches - by rounds</a>
           <a href="/">All matches - by user</a>
-          <a href="/">All matches - by match</a>
           <a href="/">Fun stats</a>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />

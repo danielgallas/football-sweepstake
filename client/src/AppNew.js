@@ -8,6 +8,7 @@ import Navbar from "./NEW_components/Navbar";
 import Leaderboard from "./NEW_features/Leaderboard";
 import LastMatch from "./NEW_features/LastMatch";
 import NextMatch from "./NEW_features/NextMatch";
+import AllMatchesRound from "./NEW_features/AllMatchesRound";
 
 function AppNew() {
   // EXPLAINING ALL THE VARIABLES:
@@ -47,6 +48,10 @@ function AppNew() {
           <Route
             path="/nextmatch"
             element={<NextMatch data={{ userPredictions, finalResults }} />}
+          />
+          <Route
+            path="/allrounds"
+            element={<AllMatchesRound data={{ userPredictions, leaderdata }} />}
           />
           <Route path="/loading" element={<Loading />} />
         </Routes>
