@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import matches from "../data/matches_total";
 
 const AllMatchesUser = (data) => {
-  const [user, setUser] = useState(1);
+  const [user, setUser] = useState(0);
 
   const handleUser = (order) => {
     if (order === "add") {

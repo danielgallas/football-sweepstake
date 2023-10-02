@@ -42,6 +42,7 @@
     padding: 5px;
     height: 100%;
     background-color: azure;
+    font-weight: bold;
 }
 
 .bottom-buttons{
@@ -63,6 +64,17 @@
 .disabled{
     all: unset;
     opacity: 40%;
+}
+
+.league-performance-title{
+    grid-column-start: 1;
+    grid-column-end: 11;
+}
+
+.league-performance{
+    display: grid;
+    grid-template-columns: 4fr repeat(8, 1fr);
+    row-gap: 2px;
 }
 
 @media only screen and (max-width: 1024px){

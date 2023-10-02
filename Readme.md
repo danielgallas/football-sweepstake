@@ -11,15 +11,15 @@ https://myfreelogomaker.com/brandkit/129244095/logo-files
 
 #### TO DO NOW:
 
-- Create All Matches by User
-- Create new page
-- Copy elements that will be used from All Matches by Rounds
-- Change what will be mapped (userPredictions)
+- Create fun stats: Feature: Gremio por performance
+- Calculate Gremio's real performance, each users' Gremio performance, return an ordered array
 
 ### AFTER THAT:
 
-- Correct all designs (Leaderboard, NextMatch, etc.) in responsive mobile
+- Fun stats: Top scorer of 300 points
+- Fun stats: Top scorer of 100 points
 - Improve design of each page (turn "300 points" to green)
+- Swipe pages in mobile
 
 #### THE MISSION:
 

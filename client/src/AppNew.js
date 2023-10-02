@@ -10,6 +10,7 @@ import LastMatch from "./NEW_features/LastMatch";
 import NextMatch from "./NEW_features/NextMatch";
 import AllMatchesRound from "./NEW_features/AllMatchesRound";
 import AllMatchesUser from "./NEW_features/AllMatchesUser";
+import FunStats from "./NEW_features/FunStats";
 
 function AppNew() {
   // EXPLAINING ALL THE VARIABLES:
@@ -66,6 +67,13 @@ function AppNew() {
             path="/allusers"
             element={<AllMatchesUser data={{ userPredictions, leaderdata }} />}
           />
+          <Route
+            path="/funstats"
+            element={
+              <FunStats data={{ userPredictions, leaderdata, finalResults }} />
+            }
+          />
+
           <Route path="/loading" element={<Loading />} />
         </Routes>
       </BrowserRouter>
@@ -73,8 +81,7 @@ function AppNew() {
   } else if (loading) {
     return <Loading />;
   } else if (error) {
-    return <Loading />;
-    // console.log(error);
+    console.log(error);
   }
 }
 export default AppNew;

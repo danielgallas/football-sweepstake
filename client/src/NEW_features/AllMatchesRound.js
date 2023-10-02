@@ -3,8 +3,8 @@ import matches from "../data/matches_total";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const AllMatchesRound = (data) => {
-  const [round, setRound] = useState(0);
   const { userPredictions, finalResults } = data.data;
+  const [round, setRound] = useState(finalResults.length);
 
   const handleRound = (order) => {
     if (order === "add") {
